@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug"/>
+				<Option working_dir="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug"/>
+				<Option working_dir="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Assignment_1_">
-				<Option output="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Assignment_1_" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug"/>
+				<Option output="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Assignment_1_" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -44,15 +44,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assignment_1_"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assignment_1_"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Assignment_1_/fast">
-				<Option output="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Assignment_1_" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug"/>
+				<Option output="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Assignment_1_" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -67,48 +67,48 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assignment_1_/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assignment_1_/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug"/>
+				<Option working_dir="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/include/Action.h">
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/include/Action.h">
 			<Option target="Assignment_1_"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/include/Session.h">
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/include/Session.h">
 			<Option target="Assignment_1_"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/include/User.h">
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/include/User.h">
 			<Option target="Assignment_1_"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/include/Watchable.h">
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/include/Watchable.h">
 			<Option target="Assignment_1_"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/src/Movie.cpp">
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Movie.cpp">
 			<Option target="Assignment_1_"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/src/Session.cpp">
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Session.cpp">
 			<Option target="Assignment_1_"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/src/Watchable.cpp">
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Watchable.cpp">
 			<Option target="Assignment_1_"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/src/main.cpp">
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/main.cpp">
 			<Option target="Assignment_1_"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/CMakeLists.txt">
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
