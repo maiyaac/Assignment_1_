@@ -96,6 +96,9 @@
 		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/include/Watchable.h">
 			<Option target="Assignment_1_"/>
 		</Unit>
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Episode.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
 		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Movie.cpp">
 			<Option target="Assignment_1_"/>
 		</Unit>
