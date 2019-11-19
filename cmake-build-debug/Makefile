@@ -123,6 +123,33 @@ Assignment_1_/fast:
 	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/build
 .PHONY : Assignment_1_/fast
 
+src/Episode.o: src/Episode.cpp.o
+
+.PHONY : src/Episode.o
+
+# target to build an object file
+src/Episode.cpp.o:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/Episode.cpp.o
+.PHONY : src/Episode.cpp.o
+
+src/Episode.i: src/Episode.cpp.i
+
+.PHONY : src/Episode.i
+
+# target to preprocess a source file
+src/Episode.cpp.i:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/Episode.cpp.i
+.PHONY : src/Episode.cpp.i
+
+src/Episode.s: src/Episode.cpp.s
+
+.PHONY : src/Episode.s
+
+# target to generate assembly for a file
+src/Episode.cpp.s:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/Episode.cpp.s
+.PHONY : src/Episode.cpp.s
+
 src/Movie.o: src/Movie.cpp.o
 
 .PHONY : src/Movie.o
@@ -240,6 +267,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Assignment_1_"
 	@echo "... edit_cache"
+	@echo "... src/Episode.o"
+	@echo "... src/Episode.i"
+	@echo "... src/Episode.s"
 	@echo "... src/Movie.o"
 	@echo "... src/Movie.i"
 	@echo "... src/Movie.s"
