@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/include/Watchable.h
+string
+-
+vector
+-
+
+/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/src/Movie.cpp
+iostream
+-
+../include/Watchable.h
+/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/include/Watchable.h
+string
+-
+vector
+-
+
+/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/src/Watchable.cpp
+string
+-
+vector
+-
+../include/Watchable.h
+/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/include/Watchable.h
+
