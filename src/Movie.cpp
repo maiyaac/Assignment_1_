@@ -9,7 +9,8 @@
 using namespace std;
 
 Movie::Movie(long id, const std::string& name, int length, const std::vector<std::string>& tags) :Watchable(id, length, tags), name(name){}
- string Movie::toString() const{//virtual
+
+string Movie::toString() const{//virtual
     string s="";
     for (vector<string>::const_iterator it = getTags().begin(); it !=  getTags().end(); it++)
         s=s+(*it)+",";

@@ -15,14 +15,19 @@ User* activeUser;
 
 
     Session::Session(const std::string &configFilePath):content(),actionsLog (),userMap(),activeUser(){
+        convertJson();
+    }
+
+
+    void Session::convertJson(){
 
         std::ifstream i("../config1.json");
         json j;
         i >> j;
+
         //movies
         long id=0 ;
         for (int i = 0; i < j["movies"].size(); i++) {
-
             id++;
             //cout<<id<<". ";
             const std::string &name = j["movies"][i]["name"];
@@ -34,52 +39,47 @@ User* activeUser;
             //   for (vector<string>::const_iterator it = tags.begin(); it !=  tags.end(); it++)
             //     s=s+(*it)+", ";
             //  cout <<s.substr(0,s.length()-2)<<"]"<< endl;
-           // content.push_back(new Movie(i, name, length, tags));
+            // content.push_back(new Movie(i, name, length, tags));
         }
+        //tv shows
+        for (int i = 0; i < j["tv_series"].size(); i++) {
+            id++;
+            const std::string &seriesName = j["tv_series"][i]["name"];
+            int length = j["tv_series"][i]["episode_length"];
+            const std::vector<int> &seasons = j["tv_series"][i]["seasons"];
+            int season = 0;
+            const std::vector<std::string> &tags = j["tv_series"][i]["tags"];
+            for (vector<int>::const_iterator it = seasons.begin(); it != seasons.end(); it++) {//
+                season++;
+                for (int episode = 1; episode <= *it; episode++) {
+                    //  content.push_back(new Episode( id,  seriesName, length,  season,  episode , tags);//
+                    //cout << id << ". ";
+                   // cout << seriesName << " ";
+                   // cout << length << " minutes ";
+                   // cout << "S" << season << "E" << episode << " ";
+                   // string s = "[";
+                   // for (vector<string>::const_iterator it = tags.begin(); it != tags.end(); it++)
+                    //    s = s + (*it) + ", ";
+                 //  cout << s.substr(0, s.length() - 2) << "]" << endl;
+                    id++;
 
-          for (int i = 0; i < j["tv_series"].size(); i++) {
-              id++;
-              const std::string &seriesName = j["tv_series"][i]["name"];
-              int length = j["tv_series"][i]["episode_length"];
-              const std::vector<int> &seasons = j["tv_series"][i]["seasons"];
-              int season = 0;
-              const std::vector<std::string> &tags = j["tv_series"][i]["tags"];
-              for (vector<int>::const_iterator it = seasons.begin(); it != seasons.end(); it++) {//
-                  season++;
-                  for (int episode = 1; episode <= *it; episode++) {
-                      //  content.push_back(new Episode( id,  seriesName, length,  season,  episode , tags);//
-                      cout << id << ". ";
-                      cout << seriesName << " ";
-                      cout << length << " minutes ";
-                      cout << "S"<<season << "E"<< episode <<" ";
-                       string s="[";
-                      for (vector<string>::const_iterator it = tags.begin(); it !=  tags.end(); it++)
-                           s=s+(*it)+", ";
-                       cout <<s.substr(0,s.length()-2)<<"]"<< endl;
-                      id++;
-
-                  }
-              }
-          }
-
-
-
-              //  content.push_back(new Movie(i,name,length, tags));
-
-
-
-          }
-
-
-
-
-    Session::~Session(){
+                }
+            }
+        }
 
     }
 
-void Session::start() {
-            std::cout << "hello";
+    Session::~Session(){}
+
+    void Session::start() {
+            std::cout << "SPLFlix is now on!" << endl;
         }
+
+    std::vector<Watchable*> Session::getContent(){
+        string s="";
+         for (vector<Watchable*>::const_iterator it = content.begin(); it != content.end(); it++)
+              std::cout << *it << endl;
+    }
 
 
 

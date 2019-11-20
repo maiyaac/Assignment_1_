@@ -14,6 +14,8 @@ public:
     Session(const std::string &configFilePath);
     ~Session();
     void start();
+    void convertJson();
+    std::vector<Watchable*> getContent();
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;
