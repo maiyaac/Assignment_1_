@@ -1,4 +1,4 @@
-/users/studs/bsc/2020/maiy/Clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)
+/users/studs/bsc/2020/edensal/Documents/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_
 -- Configuring done
 -- Generating done
--- Build files have been written to: /users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug
+-- Build files have been written to: /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug

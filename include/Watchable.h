@@ -6,14 +6,19 @@
 
 
 class Session;
-
+using namespace std;
 class Watchable{
+
 public:
     Watchable(long id, int length, const std::vector<std::string>& tags);
     virtual ~Watchable();
-    long getID();
     virtual std::string toString() const = 0;
     virtual Watchable* getNextWatchable(Session&) const = 0;
+    int getLength() const;
+    vector<string> getTags() const;
+    long getID() const;
+
+
 private:
     const long id;
     int length;
@@ -23,7 +28,7 @@ private:
 class Movie : public Watchable{
 public:
     Movie(long id, const std::string& name, int length, const std::vector<std::string>& tags);
-    virtual std::string toString(bool print_full=false) const;
+    virtual std::string toString() const;
     virtual Watchable* getNextWatchable(Session&) const;
 private:
     std::string name;

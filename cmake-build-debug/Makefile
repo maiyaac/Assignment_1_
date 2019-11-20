@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /users/studs/bsc/2020/maiy/Clion/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /users/studs/bsc/2020/edensal/Documents/clion/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /users/studs/bsc/2020/maiy/Clion/bin/cmake/linux/bin/cmake -E remove -f
+RM = /users/studs/bsc/2020/edensal/Documents/clion/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)"
+CMAKE_SOURCE_DIR = /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug"
+CMAKE_BINARY_DIR = /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = "/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/users/studs/bsc/2020/maiy/Clion/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/users/studs/bsc/2020/edensal/Documents/clion/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/users/studs/bsc/2020/maiy/Clion/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/users/studs/bsc/2020/edensal/Documents/clion/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/CMakeFiles" "/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/users/studs/bsc/2020/maiy/CLionProjects/Assignment(1)/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -122,6 +122,33 @@ Assignment_1_: cmake_check_build_system
 Assignment_1_/fast:
 	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/build
 .PHONY : Assignment_1_/fast
+
+src/Episode.o: src/Episode.cpp.o
+
+.PHONY : src/Episode.o
+
+# target to build an object file
+src/Episode.cpp.o:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/Episode.cpp.o
+.PHONY : src/Episode.cpp.o
+
+src/Episode.i: src/Episode.cpp.i
+
+.PHONY : src/Episode.i
+
+# target to preprocess a source file
+src/Episode.cpp.i:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/Episode.cpp.i
+.PHONY : src/Episode.cpp.i
+
+src/Episode.s: src/Episode.cpp.s
+
+.PHONY : src/Episode.s
+
+# target to generate assembly for a file
+src/Episode.cpp.s:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/Episode.cpp.s
+.PHONY : src/Episode.cpp.s
 
 src/Movie.o: src/Movie.cpp.o
 
@@ -240,6 +267,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Assignment_1_"
 	@echo "... edit_cache"
+	@echo "... src/Episode.o"
+	@echo "... src/Episode.i"
+	@echo "... src/Episode.s"
 	@echo "... src/Movie.o"
 	@echo "... src/Movie.i"
 	@echo "... src/Movie.s"
