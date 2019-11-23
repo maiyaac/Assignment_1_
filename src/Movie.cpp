@@ -1,7 +1,6 @@
 //
 // Created by maiy@wincs.cs.bgu.ac.il on 19/11/2019.
 //
-/*
 #include<iostream>
 #include "../include/Watchable.h"
 #include <string>
@@ -16,4 +15,5 @@ string Movie::toString() const{//virtual
         s=s+(*it)+",";
     cout<<this->getID()<<name<< this->getLength()<<"["<<s.substr(0,s.length()-1)<<"]";
 }
-*/
+
+Watchable* Movie::getNextWatchable(Session&) const{}
