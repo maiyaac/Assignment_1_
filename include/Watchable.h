@@ -17,6 +17,11 @@ public:
     int getLength() const;
     vector<string> getTags() const;
     long getID() const;
+    void copy(Watchable* other ) const;
+    void setId(long other) ;
+    void setLength(int other)  ;
+    void setTags(vector<string> other)  ;
+
 
 
 private:
@@ -30,6 +35,8 @@ public:
     Movie(long id, const std::string& name, int length, const std::vector<std::string>& tags);
     virtual std::string toString() const;
     virtual Watchable* getNextWatchable(Session&) const;
+    void copy(Movie* other ) const;
+    string getName() const;
 private:
     std::string name;
 };

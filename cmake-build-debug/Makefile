@@ -123,6 +123,33 @@ Assignment_1_/fast:
 	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/build
 .PHONY : Assignment_1_/fast
 
+src/Action.o: src/Action.cpp.o
+
+.PHONY : src/Action.o
+
+# target to build an object file
+src/Action.cpp.o:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/Action.cpp.o
+.PHONY : src/Action.cpp.o
+
+src/Action.i: src/Action.cpp.i
+
+.PHONY : src/Action.i
+
+# target to preprocess a source file
+src/Action.cpp.i:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/Action.cpp.i
+.PHONY : src/Action.cpp.i
+
+src/Action.s: src/Action.cpp.s
+
+.PHONY : src/Action.s
+
+# target to generate assembly for a file
+src/Action.cpp.s:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/Action.cpp.s
+.PHONY : src/Action.cpp.s
+
 src/Episode.o: src/Episode.cpp.o
 
 .PHONY : src/Episode.o
@@ -267,6 +294,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Assignment_1_"
 	@echo "... edit_cache"
+	@echo "... src/Action.o"
+	@echo "... src/Action.i"
+	@echo "... src/Action.s"
 	@echo "... src/Episode.o"
 	@echo "... src/Episode.i"
 	@echo "... src/Episode.s"

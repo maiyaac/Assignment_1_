@@ -14,6 +14,7 @@ std::unordered_map<std::string,User*> userMap;
 User* activeUser;
 
 
+
     Session::Session(const std::string &configFilePath):content(),actionsLog (),userMap(),activeUser(){
 
         std::ifstream i("../config1.json");
@@ -78,7 +79,18 @@ User* activeUser;
     }
 
 void Session::start() {
-            std::cout << "hello";
+        cout<<"SPLFLIX is now on";
+        string s;
+        cin >> s;
+        while(s!="exit")
+            if(s.="createUser")
+                createUser(this)
+            if(s=changeUser)
+
+
+
+                cin >> s;
+
         }
 
 

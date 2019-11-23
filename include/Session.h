@@ -20,4 +20,7 @@ private:
     std::unordered_map<std::string,User*> userMap;
     User* activeUser;
 };
+
+
 #endif
+
