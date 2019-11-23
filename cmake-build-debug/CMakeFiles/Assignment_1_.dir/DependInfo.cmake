@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Episode.cpp" "/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles/Assignment_1_.dir/src/Episode.cpp.o"
-  "/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Movie.cpp" "/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles/Assignment_1_.dir/src/Movie.cpp.o"
-  "/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Session.cpp" "/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles/Assignment_1_.dir/src/Session.cpp.o"
-  "/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Watchable.cpp" "/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles/Assignment_1_.dir/src/Watchable.cpp.o"
-  "/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/main.cpp" "/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles/Assignment_1_.dir/src/main.cpp.o"
+  "/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/Episode.cpp" "/users/studs/bsc/2020/maiy/CLionProjects/Ass1/cmake-build-debug/CMakeFiles/Assignment_1_.dir/src/Episode.cpp.o"
+  "/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/Movie.cpp" "/users/studs/bsc/2020/maiy/CLionProjects/Ass1/cmake-build-debug/CMakeFiles/Assignment_1_.dir/src/Movie.cpp.o"
+  "/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/Session.cpp" "/users/studs/bsc/2020/maiy/CLionProjects/Ass1/cmake-build-debug/CMakeFiles/Assignment_1_.dir/src/Session.cpp.o"
+  "/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/Watchable.cpp" "/users/studs/bsc/2020/maiy/CLionProjects/Ass1/cmake-build-debug/CMakeFiles/Assignment_1_.dir/src/Watchable.cpp.o"
+  "/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/main.cpp" "/users/studs/bsc/2020/maiy/CLionProjects/Ass1/cmake-build-debug/CMakeFiles/Assignment_1_.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

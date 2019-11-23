@@ -8,10 +8,6 @@
 #include <fstream>
 
 using json = nlohmann::json;
-std::vector<Watchable*> content;
-std::vector<BaseAction*> actionsLog;
-std::unordered_map<std::string,User*> userMap;
-User* activeUser;
 
 
     Session::Session(const std::string &configFilePath):content(),actionsLog (),userMap(),activeUser(){
@@ -39,7 +35,7 @@ User* activeUser;
             //   for (vector<string>::const_iterator it = tags.begin(); it !=  tags.end(); it++)
             //     s=s+(*it)+", ";
             //  cout <<s.substr(0,s.length()-2)<<"]"<< endl;
-            // content.push_back(new Movie(i, name, length, tags));
+            content.push_back(new Movie(i, name, length, tags));
         }
         //tv shows
         for (int i = 0; i < j["tv_series"].size(); i++) {
@@ -52,7 +48,7 @@ User* activeUser;
             for (vector<int>::const_iterator it = seasons.begin(); it != seasons.end(); it++) {//
                 season++;
                 for (int episode = 1; episode <= *it; episode++) {
-                    //  content.push_back(new Episode( id,  seriesName, length,  season,  episode , tags);//
+                    content.push_back(new Episode( id,  seriesName, length,  season,  episode , tags));//
                     //cout << id << ". ";
                    // cout << seriesName << " ";
                    // cout << length << " minutes ";
@@ -73,12 +69,15 @@ User* activeUser;
 
     void Session::start() {
             std::cout << "SPLFlix is now on!" << endl;
+        std::cout << content[20].->toString();
+
+
+
         }
 
     std::vector<Watchable*> Session::getContent(){
-        string s="";
-         for (vector<Watchable*>::const_iterator it = content.begin(); it != content.end(); it++)
-              std::cout << *it << endl;
+
+        return content;
     }
 
 
