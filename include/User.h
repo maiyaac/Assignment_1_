@@ -14,6 +14,8 @@ public:
     virtual Watchable* getRecommendation(Session& s) = 0;
     std::string getName() const;
     std::vector<Watchable*> get_history() const;
+    void addContent(Watchable*);
+    virtual User* clone()=0 ;
 protected:
     std::vector<Watchable*> history;
 private:
@@ -24,21 +26,26 @@ private:
 
 class LengthRecommenderUser : public User {
 public:
-    LengthRecommenderUser(const std::string& name);
+    LengthRecommenderUser( std::string& name);
     virtual Watchable* getRecommendation(Session& s);
+    virtual User* clone() ;
+    int getavgL();
+    Watchable* getNextWatchable(Session& s, int avgL);
+    bool findT(Watchable*);
+
 private:
 };
 
 class RerunRecommenderUser : public User {
 public:
-    RerunRecommenderUser(const std::string& name);
+    RerunRecommenderUser( std::string& name);
     virtual Watchable* getRecommendation(Session& s);
 private:
 };
 
 class GenreRecommenderUser : public User {
 public:
-    GenreRecommenderUser(const std::string& name);
+    GenreRecommenderUser( std::string& name);
     virtual Watchable* getRecommendation(Session& s);
 private:
 };

@@ -20,12 +20,14 @@ public:
     void setTags(vector<string> other);
     void setLength(int other);
     void setId(long other);
+    virtual string getName();
 
 
 private:
     const long id;
     int length;
     std::vector<std::string> tags;
+    string name;
 };
 
 class Movie : public Watchable{
@@ -51,7 +53,7 @@ public:
     void setSeriesName(string other);
     void setSeason(int other);
     void setEpisode(int other);
-    string getSeriesName() const ;
+    virtual string getSeriesName() const ;
     int getSeason() const;
     int getEpisode() const;
 

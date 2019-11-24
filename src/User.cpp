@@ -8,8 +8,17 @@
 #include "../include/User.h"
 using namespace std;
 
-User::User(const std::string &name,const string recA) : name(name),history() {
+User::User(string &name) : name(name),history() {}
 
+std::string User::getName() const {
+    return name;
+}
 
+std::vector<Watchable *> User::get_history() const {
+    return std::vector<Watchable *>();
+}
+
+void User::addContent(Watchable * content ) {
+    history.push_back(content);
 }
 
