@@ -20,8 +20,9 @@ Movie::Movie ( const Movie &other): Watchable(other.getID(), other.getLength(),o
 
         string Movie::toString() const {//virtual
             string s = "";
-            for (vector<string>::const_iterator it = getTags().begin(); it != getTags().end(); it++)
-                s = s + (*it) + ",";
+            for (int i =0; i<getTags().size()-1; i++) {
+                s = s + getTags().at(i) + ", ";
+            }
             cout << this->getID() << name << this->getLength() << "[" << s.substr(0, s.length() - 1) << "]";
 
         }

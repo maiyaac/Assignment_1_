@@ -10,32 +10,40 @@
 #include <unordered_map>
 
 
-void BaseAction::act(Session & sess){
-    std::string input = sess->getInput();
+void DuplicateUser::act(Session& sess){
+    std::string input = sess.getInput();
     input = input.substr(7, input.size()-1);
     std::string nameCopy = input.substr(0, input.find(" "));
     std::string myName = input.substr(input.find(" "), input.size()-1);
     std::unordered_map<std::string, User*>::iterator it;
     it = sess.getUserMap().find(nameCopy);
-    if(it==sess->getUserMap().end()){
-        setStatus(ERROR);
-        sess->addActionLog(this);
-        errorMsg = "The user does not exist!";
-        return error(errorMsg);
+    if(it==sess.getUserMap().end()){
+        sess.addActionLog(this);
+        return error("The user does not exist!");
     }
     it = sess.getUserMap().find(myName);
     if (it!=sess.getUserMap().end()){
-        setStatus(ERROR);
         sess.addActionLog(this);
-        errorMsg = "A user with this name already exists!";
-        return error(errorMsg);
+        return error("A user with this name already exists!");
     }
     else {
         sess.duplicateUser(myName);
-        sess->addActionLog(this);
-        setStatus(COMPLETED);
+        sess.addActionLog(this);
+        complete();
     }
-    sess.duplicateUser();
 }
 
-virtual std::string toString() const;
+std::string DuplicateUser::toString() const{
+    std::string output;
+    if (getStatus() == ERROR){
+        output = "DuplicateUser ERROR" + getErrorMsg();
+    }
+
+    if (getStatus() == COMPLETED){
+        output = "DuplicateUser COMPLETED";
+    }
+    if (getStatus() == PENDING){
+        output = "DuplicateUser PENDING";
+    }
+    return output;
+}

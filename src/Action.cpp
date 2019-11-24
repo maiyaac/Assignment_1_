@@ -6,8 +6,7 @@
 
 BaseAction::BaseAction() {
     std::string errorMsg;
-    ActionStatus status;
-
+    ActionStatus status = PENDING;
 }
 
 ActionStatus BaseAction::getStatus() const {
@@ -15,16 +14,17 @@ ActionStatus BaseAction::getStatus() const {
 }
 
 void BaseAction::complete() {
-
+    setStatus(COMPLETED);
 }
 
 void BaseAction::error(const std::string &errorMsg) {
-    std::cout<<errorMsg;
+    setErrorMsg(errorMsg);
+    setStatus(ERROR);
 
 }
 
 std::string BaseAction::getErrorMsg() const {
-    return std::__cxx11::string();
+    return errorMsg;
 }
 
 void BaseAction::setStatus(ActionStatus s) {

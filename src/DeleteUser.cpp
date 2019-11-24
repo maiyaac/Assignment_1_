@@ -1,3 +1,4 @@
+
 #include "../include/Action.h"
 #include <string>
 #include <iostream>
@@ -5,9 +6,9 @@
 #include <vector>
 #include "../include/User.h"
 
-void ChangeActiveUser::act(Session& sess){
+void DeleteUser::act(Session & sess){
     std::string input = sess.getInput();
-    input = input.substr(10, input.size()-1);
+    input = input.substr(11, input.size()-1);
     std::string name = input.substr(0, input.size()-1);
     std::unordered_map<std::string, User*>::iterator it;
     it = sess.getUserMap().find(name);
@@ -15,23 +16,23 @@ void ChangeActiveUser::act(Session& sess){
         sess.addActionLog(this);
         return error("The user does not exist!");
     }
-    else {
-        sess.setActiveUser(it->second);
+    else{
+        sess.getUserMap().erase(name);
         sess.addActionLog(this);
         complete();
     }
 }
-std::string ChangeActiveUser::toString() const {
+std::string DeleteUser::toString() const{
     std::string output;
     if (getStatus() == ERROR){
-        output = "ChangeUser ERROR" + getErrorMsg();
+        output = "DeleteUser ERROR" + getErrorMsg();
     }
 
     if (getStatus() == COMPLETED){
-        output = "ChangeUser COMPLETED";
+        output = "DeleteUser COMPLETED";
     }
     if (getStatus() == PENDING){
-        output = "ChangeUser PENDING";
+        output = "DeleteUser PENDING";
     }
     return output;
 }
