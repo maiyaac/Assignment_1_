@@ -150,6 +150,60 @@ src/Action.cpp.s:
 	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/Action.cpp.s
 .PHONY : src/Action.cpp.s
 
+src/ChangeActiveUser.o: src/ChangeActiveUser.cpp.o
+
+.PHONY : src/ChangeActiveUser.o
+
+# target to build an object file
+src/ChangeActiveUser.cpp.o:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.o
+.PHONY : src/ChangeActiveUser.cpp.o
+
+src/ChangeActiveUser.i: src/ChangeActiveUser.cpp.i
+
+.PHONY : src/ChangeActiveUser.i
+
+# target to preprocess a source file
+src/ChangeActiveUser.cpp.i:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.i
+.PHONY : src/ChangeActiveUser.cpp.i
+
+src/ChangeActiveUser.s: src/ChangeActiveUser.cpp.s
+
+.PHONY : src/ChangeActiveUser.s
+
+# target to generate assembly for a file
+src/ChangeActiveUser.cpp.s:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.s
+.PHONY : src/ChangeActiveUser.cpp.s
+
+src/CreateUser.o: src/CreateUser.cpp.o
+
+.PHONY : src/CreateUser.o
+
+# target to build an object file
+src/CreateUser.cpp.o:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.o
+.PHONY : src/CreateUser.cpp.o
+
+src/CreateUser.i: src/CreateUser.cpp.i
+
+.PHONY : src/CreateUser.i
+
+# target to preprocess a source file
+src/CreateUser.cpp.i:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.i
+.PHONY : src/CreateUser.cpp.i
+
+src/CreateUser.s: src/CreateUser.cpp.s
+
+.PHONY : src/CreateUser.s
+
+# target to generate assembly for a file
+src/CreateUser.cpp.s:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.s
+.PHONY : src/CreateUser.cpp.s
+
 src/Episode.o: src/Episode.cpp.o
 
 .PHONY : src/Episode.o
@@ -231,6 +285,33 @@ src/Session.cpp.s:
 	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/Session.cpp.s
 .PHONY : src/Session.cpp.s
 
+src/User.o: src/User.cpp.o
+
+.PHONY : src/User.o
+
+# target to build an object file
+src/User.cpp.o:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/User.cpp.o
+.PHONY : src/User.cpp.o
+
+src/User.i: src/User.cpp.i
+
+.PHONY : src/User.i
+
+# target to preprocess a source file
+src/User.cpp.i:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/User.cpp.i
+.PHONY : src/User.cpp.i
+
+src/User.s: src/User.cpp.s
+
+.PHONY : src/User.s
+
+# target to generate assembly for a file
+src/User.cpp.s:
+	$(MAKE) -f CMakeFiles/Assignment_1_.dir/build.make CMakeFiles/Assignment_1_.dir/src/User.cpp.s
+.PHONY : src/User.cpp.s
+
 src/Watchable.o: src/Watchable.cpp.o
 
 .PHONY : src/Watchable.o
@@ -297,6 +378,12 @@ help:
 	@echo "... src/Action.o"
 	@echo "... src/Action.i"
 	@echo "... src/Action.s"
+	@echo "... src/ChangeActiveUser.o"
+	@echo "... src/ChangeActiveUser.i"
+	@echo "... src/ChangeActiveUser.s"
+	@echo "... src/CreateUser.o"
+	@echo "... src/CreateUser.i"
+	@echo "... src/CreateUser.s"
 	@echo "... src/Episode.o"
 	@echo "... src/Episode.i"
 	@echo "... src/Episode.s"
@@ -306,6 +393,9 @@ help:
 	@echo "... src/Session.o"
 	@echo "... src/Session.i"
 	@echo "... src/Session.s"
+	@echo "... src/User.o"
+	@echo "... src/User.i"
+	@echo "... src/User.s"
 	@echo "... src/Watchable.o"
 	@echo "... src/Watchable.i"
 	@echo "... src/Watchable.s"

@@ -135,6 +135,45 @@ CMakeFiles/Assignment_1_.dir/src/Action.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment_1_.dir/src/Action.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Action.cpp -o CMakeFiles/Assignment_1_.dir/src/Action.cpp.s
 
+CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.o: CMakeFiles/Assignment_1_.dir/flags.make
+CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.o: ../src/CreateUser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.o -c /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/CreateUser.cpp
+
+CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/CreateUser.cpp > CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.i
+
+CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/CreateUser.cpp -o CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.s
+
+CMakeFiles/Assignment_1_.dir/src/User.cpp.o: CMakeFiles/Assignment_1_.dir/flags.make
+CMakeFiles/Assignment_1_.dir/src/User.cpp.o: ../src/User.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Assignment_1_.dir/src/User.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1_.dir/src/User.cpp.o -c /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/User.cpp
+
+CMakeFiles/Assignment_1_.dir/src/User.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment_1_.dir/src/User.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/User.cpp > CMakeFiles/Assignment_1_.dir/src/User.cpp.i
+
+CMakeFiles/Assignment_1_.dir/src/User.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment_1_.dir/src/User.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/User.cpp -o CMakeFiles/Assignment_1_.dir/src/User.cpp.s
+
+CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.o: CMakeFiles/Assignment_1_.dir/flags.make
+CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.o: ../src/ChangeActiveUser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.o -c /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/ChangeActiveUser.cpp
+
+CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/ChangeActiveUser.cpp > CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.i
+
+CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/ChangeActiveUser.cpp -o CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.s
+
 # Object files for target Assignment_1_
 Assignment_1__OBJECTS = \
 "CMakeFiles/Assignment_1_.dir/src/main.cpp.o" \
@@ -142,7 +181,10 @@ Assignment_1__OBJECTS = \
 "CMakeFiles/Assignment_1_.dir/src/Movie.cpp.o" \
 "CMakeFiles/Assignment_1_.dir/src/Watchable.cpp.o" \
 "CMakeFiles/Assignment_1_.dir/src/Episode.cpp.o" \
-"CMakeFiles/Assignment_1_.dir/src/Action.cpp.o"
+"CMakeFiles/Assignment_1_.dir/src/Action.cpp.o" \
+"CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.o" \
+"CMakeFiles/Assignment_1_.dir/src/User.cpp.o" \
+"CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.o"
 
 # External object files for target Assignment_1_
 Assignment_1__EXTERNAL_OBJECTS =
@@ -153,9 +195,12 @@ Assignment_1_: CMakeFiles/Assignment_1_.dir/src/Movie.cpp.o
 Assignment_1_: CMakeFiles/Assignment_1_.dir/src/Watchable.cpp.o
 Assignment_1_: CMakeFiles/Assignment_1_.dir/src/Episode.cpp.o
 Assignment_1_: CMakeFiles/Assignment_1_.dir/src/Action.cpp.o
+Assignment_1_: CMakeFiles/Assignment_1_.dir/src/CreateUser.cpp.o
+Assignment_1_: CMakeFiles/Assignment_1_.dir/src/User.cpp.o
+Assignment_1_: CMakeFiles/Assignment_1_.dir/src/ChangeActiveUser.cpp.o
 Assignment_1_: CMakeFiles/Assignment_1_.dir/build.make
 Assignment_1_: CMakeFiles/Assignment_1_.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Assignment_1_"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Assignment_1_"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Assignment_1_.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

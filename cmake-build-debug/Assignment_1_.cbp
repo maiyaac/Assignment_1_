@@ -99,6 +99,12 @@
 		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Action.cpp">
 			<Option target="Assignment_1_"/>
 		</Unit>
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/ChangeActiveUser.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/CreateUser.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
 		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Episode.cpp">
 			<Option target="Assignment_1_"/>
 		</Unit>
@@ -106,6 +112,9 @@
 			<Option target="Assignment_1_"/>
 		</Unit>
 		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Session.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/User.cpp">
 			<Option target="Assignment_1_"/>
 		</Unit>
 		<Unit filename="/users/studs/bsc/2020/edensal/CLionProjects/Assignment_1_/src/Watchable.cpp">
