@@ -12,7 +12,7 @@ Episode::Episode(long id, const std::string& seriesName,int length, int season, 
 std::string Episode::toString() const{
     string s = "[";
     for (vector<string>::const_iterator it = this->getTags().begin(); it != this->getTags().end(); it++)
-        s = s + *it + ", ";
+            s = s + *it + ", ";
     cout << this->getID() << ". " << seriesName << " " << this->getLength() << " minutes " << "S" << season << "E" << episode << " " << s.substr(0, s.length()-2) << "]" << endl;
 }
 
@@ -71,3 +71,8 @@ Watchable* Episode::getNextWatchable(Session& s) const{
 
 
 }
+
+
+
+
+

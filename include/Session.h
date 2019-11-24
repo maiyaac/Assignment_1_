@@ -25,6 +25,7 @@ public:
     void setActiveUser(User *activeUser);
     void addActionLog(BaseAction *const action);
     void addUser(string,User* )const;
+    void duplicateUser(string name);
 
 private:
     std::vector<Watchable*> content;
@@ -35,4 +36,3 @@ private:
 
 
 #endif
-

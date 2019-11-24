@@ -12,7 +12,7 @@ ChangeActiveUser::ChangeActiveUser(){
 
 void ChangeActiveUser::act(Session& sess){
     std::string input = sess->getInput();
-    input = input.substr(11, input.size()-1);
+    input = input.substr(10, input.size()-1);
     std::string name = input.substr(0, input.size()-1);
     std::unordered_map<std::string, User*>::iterator it;
     it = sess->getUserMap().find(name);

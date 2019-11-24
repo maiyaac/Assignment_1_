@@ -1,6 +1,4 @@
-//
-// Created by edensal@wincs.cs.bgu.ac.il on 23/11/2019.
-//
+
 #include "../include/User.h"
 #include "../include/Action.h"
 #include <map>
@@ -14,8 +12,7 @@ CreateUser::CreateUser() {}
 CreateUser ::~CreateUser();
 
 void CreateUser::act(Session &sess) {
-
- /*   string s="";
+    string s="";
     //sess->addActionLog(new CreateUser());
     s=sess->getInput();
     s=s.substr(10,s.size()-1);// check
@@ -36,20 +33,19 @@ void CreateUser::act(Session &sess) {
     sess->addUser(name,new User(name,recG));
     setStatus(COMPLETED);
     sess->addActionLog(this);
-   sess->setActiveUser(this);
-   */
+    sess->setActiveUser(this);
 
 
 }
 
 string CreateUser::toString() const {
-   string s="Create User ";
-   if(getStatus()==ERROR)
-       s=s+"ERROR "+getErrorMsg();
+    string s="Create User ";
+    if(getStatus()==ERROR)
+        s=s+"ERROR "+getErrorMsg();
     if(getStatus()==COMPLETED)
         s=s+"COMPLETED ";
     if(getStatus()==PENDING)
         s=s+"PENDING ";
-   return s;
+    return s;
 
 }

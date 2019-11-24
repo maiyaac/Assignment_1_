@@ -54,19 +54,17 @@ void Session::setActiveUser(User *activeUser) {
     Session::activeUser = activeUser;
 }
 void Session::addActionLog(BaseAction *const action) {
-    actionsLog.push_back(action);
+    actionsLog.push_back(new *action);
 }
 
 void Session::addUser(string name , User * user) const {
 
     userMap.insert({name,user});
 }
+void duplicateUser(string name){
 
-
+    add
 }
-
-
-
 
 void Session::convertJson(){
 
@@ -117,6 +115,3 @@ void Session::convertJson(){
     }
 
 }
-
-
-
