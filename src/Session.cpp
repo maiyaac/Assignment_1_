@@ -11,7 +11,7 @@ using namespace std;
 using json = nlohmann::json;
 
 
-Session::Session(const std::string &configFilePath):content(),actionsLog (),userMap(),activeUser(),terminate(false){
+Session::Session(const std::string &configFilePath):content(),actionsLog (),userMap(),activeUser(),terminate(false),input(){
     convertJson();
     User default1* = new LengthRecommenderUser("default");
     userMap.insert(make_pair("default",default1));
@@ -23,34 +23,56 @@ Session::~Session(){}
 void Session::start() {
     std::cout << "SPLFlix is now on!" << endl;
     while(!terminate){
-        string input;
         getline(cin,input);
         string action=input.substr(0,input.find(" "));
-        if(action.compare("createuser"){
-            CreateUser(input);
+        if(action.compare("createuser")==0){
+            CreateUser *newuser = new CreateUser;
+            newuser->act(*this);
         }
-
-        if(action.compare("changeuser")){
-            ChangeActiveUser(input);
+        else if(action.compare("changeuser")==0){
+            ChangeActiveUser *changeuser = new ChangeActiveUser;
+            changeuser->act(*this);
         }
-        if(action.compare("DeleteUser"))
-        if(action.compare("Watch")){}
-        if(action.compare("Exit")){
-
+        else if(action.compare("deleteuser")==0){
+            DeleteUser *deleteuser = new DeleteUser;
+            deleteuser->act(*this);
+        }
+        else if(action.compare("dupuser")==0){
+            DuplicateUser *dupuser = new DuplicateUser;
+            dupuser->act(*this);
+        }
+        else if(action.compare("log")==0){
+            PrintActionsLog *actionlog = new PrintActionsLog;
+            actionlog->act(*this);
+        }
+        else if(action.compare("content")==0){
+            PrintContentList *printcontent = new PrintContentList;
+            printcontent->act(*this);
+        }
+        else if(action.compare("watchhist")==0){
+            PrintWatchHistory *printhistory = new PrintWatchHistory;
+            printhistory->act(*this);
+        }
+        else if(action.compare("watch")==0){ //still need to make class
+            Watch *watch = new Watch;
+            watch->act(*this);
+        }
+        else if(action.compare("Exit")==0){//need to check what to implement here.. terminate??
+            terminate=true;
+        }
+        else{
+            cout << "Invalid input";
         }
     }
-
-
-
-
-
-
-
 }
 
 std::vector<Watchable*> Session::getContent() const{
 
     return content;
+}
+
+string Session::getInput(){
+    return input;
 }
 
 const vector<BaseAction *> &Session::getActionsLog() const {
@@ -86,30 +108,33 @@ void Session::addActionLog(BaseAction *const action) {
 
 void Session::addUser(string name, string rec)  {
     if (rec=="len"){
-        LengthRecommenderUser newUser* = new LengthRecommenderUser(name);
+        LengthRecommenderUser *newUser = new LengthRecommenderUser(name);
         userMap.insert(make_pair(name,newUser));
     }
     if (rec=="rer"){
-        RerunRecommenderUser newUser* = new RerunRecommenderUser(name);
+        RerunRecommenderUser *newUser = new RerunRecommenderUser(name);
         userMap.insert(make_pair(name, newUser));
     }
     if (rec=="gen"){
-        GenreRecommenderUser newUser* = new GenreRecommenderUser(name);
+        GenreRecommenderUser *newUser = new GenreRecommenderUser(name);
         userMap.insert(make_pair(name, newUser));
     }
 }
-void duplicateUser(string name){
+void Session::duplicateUser(string name){ //need to make copy constructor for each and also getrec and setname functions in user
     string rec = activeUser.getRec();
     if (rec=="len"){
-        LengthRecommenderUser newUser*(activeUser);
+        LengthRecommenderUser *newUser = new LengthRecommenderUser(activeUser);
+        newUser->setName(name);
     }
     if (rec=="rer"){
-        RerunRecommenderUser newUser*(activeUser);
+        RerunRecommenderUser *newUser = new RerunRecommenderUser(activeUser);
+        newUser->setName(name);
     }
-    if (rec=="gen"){
-        GenreRecommenderUser newUser*(activeUser);
+    if (rec=="gen") {
+        GenreRecommenderUser *newUser = new GenreRecommenderUser(activeUser);
+        newUser->setName(name);
     }
-    activeUser.setName(name);
+
 }
 
 void Session::convertJson(){

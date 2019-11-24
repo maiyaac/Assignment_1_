@@ -26,6 +26,7 @@ public:
     void addActionLog(BaseAction *const action);
     void addUser(string name, string rec) ;
     void duplicateUser(string name);
+    string getInput();
 
 private:
     std::vector<Watchable*> content;
@@ -33,6 +34,7 @@ private:
     std::unordered_map<std::string,User*> userMap;
     User* activeUser;
     bool terminate;
+    string input;
 };
 
 
