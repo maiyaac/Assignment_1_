@@ -4,13 +4,6 @@
 #include <map>
 using namespace std;
 
-CreateUser::CreateUser():{
-    string errorMsg="user with this name already exist";
-    ActionStatus status=PENDING;
-}
-CreateUser::CreateUser() {}
-CreateUser ::~CreateUser();
-
 void CreateUser::act(Session &sess) {
     string s="";
     //sess->addActionLog(new CreateUser());
@@ -19,23 +12,17 @@ void CreateUser::act(Session &sess) {
     string name=s.substr(0,s.find(" "));//check
     string recG=s.substr(s.find(" ")+1,s.size());
     if(recG.compare("len")!=0&recG.compare("rer")!=0&recG.compare("gen")!=0){
-        setStatus(ERROR);
-        setErrorMsg("no such recommendation algorithm");
         sess->addActionLog(this);
-        return error(getErrorMsg());
+        return error("No such recommendation option!");
     }
     map <string,User*>::iterator it=sess->getUserMap().find(name);
     if(it!=sess->getUserMap().end()) {
-        setStatus(ERROR);
         sess->addActionLog(this);
-        return error(getErrorMsg());
+        return error("A user with this name already exists!");
     }
-    sess->addUser(name,new User(name,recG));
-    setStatus(COMPLETED);
+    sess->addUser(name, recG);
     sess->addActionLog(this);
-    sess->setActiveUser(this);
-
-
+    complete();
 }
 
 string CreateUser::toString() const {

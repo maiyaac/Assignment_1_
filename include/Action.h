@@ -30,15 +30,12 @@ private:
 
 class CreateUser  : public BaseAction {
 public:
-    CreateUser();
-   // virtual ~CreateUser();
     virtual void act(Session& sess);
     virtual std::string toString() const;
 };
 
 class ChangeActiveUser : public BaseAction {
 public:
-    ChangeActiveUser();
     virtual void act(Session& sess);
     virtual std::string toString() const;
 };

@@ -5,6 +5,7 @@
 #include "../include/Session.h"
 #include "../include/json.hpp"
 #include "../include/Watchable.h"
+#include "../include/User.h"
 #include <fstream>
 using namespace std;
 using json = nlohmann::json;
@@ -12,6 +13,9 @@ using json = nlohmann::json;
 
 Session::Session(const std::string &configFilePath):content(),actionsLog (),userMap(),activeUser(),terminate(false){
     convertJson();
+    User default1* = new LengthRecommenderUser("default");
+    userMap.insert(make_pair("default",default1));
+    setActiveUser(default1);
 }
 
 Session::~Session(){}
@@ -80,13 +84,32 @@ void Session::addActionLog(BaseAction *const action) {
     actionsLog.push_back(new *action);
 }
 
-void Session::addUser(string name , User * user) const {
-
-    userMap.insert({name,user});
+void Session::addUser(string name, string rec)  {
+    if (rec=="len"){
+        LengthRecommenderUser newUser* = new LengthRecommenderUser(name);
+        userMap.insert(make_pair(name,newUser));
+    }
+    if (rec=="rer"){
+        RerunRecommenderUser newUser* = new RerunRecommenderUser(name);
+        userMap.insert(make_pair(name, newUser));
+    }
+    if (rec=="gen"){
+        GenreRecommenderUser newUser* = new GenreRecommenderUser(name);
+        userMap.insert(make_pair(name, newUser));
+    }
 }
 void duplicateUser(string name){
-
-    add
+    string rec = activeUser.getRec();
+    if (rec=="len"){
+        LengthRecommenderUser newUser*(activeUser);
+    }
+    if (rec=="rer"){
+        RerunRecommenderUser newUser*(activeUser);
+    }
+    if (rec=="gen"){
+        GenreRecommenderUser newUser*(activeUser);
+    }
+    activeUser.setName(name);
 }
 
 void Session::convertJson(){

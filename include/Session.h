@@ -24,7 +24,7 @@ public:
     void setUserMap(const std::unordered_map<std::string, User *> &userMap);
     void setActiveUser(User *activeUser);
     void addActionLog(BaseAction *const action);
-    void addUser(string,User* )const;
+    void addUser(string name, string rec) ;
     void duplicateUser(string name);
 
 private:
