@@ -10,7 +10,7 @@ using namespace std;
 using json = nlohmann::json;
 
 
-Session::Session(const std::string &configFilePath):content(),actionsLog (),userMap(),activeUser(){
+Session::Session(const std::string &configFilePath):content(),actionsLog (),userMap(),activeUser(),terminate(false){
     convertJson();
 }
 
@@ -18,6 +18,29 @@ Session::~Session(){}
 
 void Session::start() {
     std::cout << "SPLFlix is now on!" << endl;
+    while(!terminate){
+        string input;
+        getline(cin,input);
+        string action=input.substr(0,input.find(" "));
+        if(action.compare("createuser"){
+            CreateUser(input);
+        }
+
+        if(action.compare("changeuser")){
+            ChangeActiveUser(input);
+        }
+        if(action.compare("DeleteUser"))
+        if(action.compare("Watch")){}
+        if(action.compare("Exit")){
+
+        }
+    }
+
+
+
+
+
+
 
 }
 

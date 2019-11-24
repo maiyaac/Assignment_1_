@@ -10,6 +10,7 @@ using namespace std;
 class Watchable{
 
 public:
+    Watchable();
     Watchable(long id, int length, const std::vector<std::string>& tags);
     virtual ~Watchable();
     virtual std::string toString() const = 0;
