@@ -14,7 +14,8 @@ CreateUser::CreateUser() {}
 CreateUser ::~CreateUser();
 
 void CreateUser::act(Session &sess) {
-    string s="";
+
+ /*   string s="";
     //sess->addActionLog(new CreateUser());
     s=sess->getInput();
     s=s.substr(10,s.size()-1);// check
@@ -35,7 +36,8 @@ void CreateUser::act(Session &sess) {
     sess->addUser(name,new User(name,recG));
     setStatus(COMPLETED);
     sess->addActionLog(this);
-    sess->setActiveUser(this);
+   sess->setActiveUser(this);
+   */
 
 
 }

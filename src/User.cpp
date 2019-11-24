@@ -8,7 +8,7 @@
 #include "../include/User.h"
 using namespace std;
 
-User::User(const std::string &name,const string recA) : name(name),recA(recA),history() {
+User::User(const std::string &name,const string recA) : name(name),history() {
 
 
 }
