@@ -32,6 +32,7 @@ private:
     std::vector<BaseAction*> actionsLog;
     std::unordered_map<std::string,User*> userMap;
     User* activeUser;
+    bool terminate;
 };
 
 

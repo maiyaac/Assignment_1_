@@ -7,6 +7,7 @@
 #include <unordered_map>
 class Watchable;
 class Session;
+using namespace std;
 
 class User{
 public:
@@ -24,9 +25,19 @@ private:
 
 class LengthRecommenderUser : public User {
 public:
-    LengthRecommenderUser(const std::string& name);
+    LengthRecommenderUser(std::string &name);
     virtual Watchable* getRecommendation(Session& s);
+    virtual User * clone() ;
+    int getavgL() ;
+    Watchable* getNextWatchable(Session &s,int avgL) ;
+    bool findInHistory(Watchable * temp) ;
+    bool findInRecHistory(Watchable * temp);
+    bool isFull();
+     void clear(vector<Watchable*>);
+
 private:
+    vector<Watchable*> recHistory;
+
 };
 
 class RerunRecommenderUser : public User {
