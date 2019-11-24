@@ -33,10 +33,11 @@ public:
     Movie(long id, const std::string& name, int length, const std::vector<std::string>& tags);
     virtual std::string toString() const;
     virtual Watchable* getNextWatchable(Session&) const;
+    void copy(Movie* other ) const;
+    string getName() const;
 private:
     std::string name;
 };
-
 
 class Episode: public Watchable{
 public:
