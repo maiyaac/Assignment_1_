@@ -10,14 +10,21 @@
 #include "../include/Watchable.h"
 #include "../include/Session.h"
 
-//using namespace std;
-//RerunRecommenderUser::RerunRecommenderUser( string& name):User(name){}
-//
-//Watchable *RerunRecommenderUser::getRecommendation(Session &s) {
-//    return nullptr;
-//}
-//
-//User *RerunRecommenderUser::clone() {
-//    return nullptr;
-//}
+using namespace std;
+RerunRecommenderUser::RerunRecommenderUser( string& name):User(name) ,lastId(1){
+    setRec("rer");
+
+}
+
+Watchable *RerunRecommenderUser::getRecommendation(Session &s) {
+    Watchable* nextWatchable= history[lastId];
+    lastId=(lastId+1)%history.size();
+    return nextWatchable;
+}
+
+User *RerunRecommenderUser::clone() {
+    return new RerunRecommenderUser(*this);
+}
+
+
 
