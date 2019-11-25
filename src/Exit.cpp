@@ -20,3 +20,7 @@ std::string Exit::toString() const{
     }
     return output;
 }
+
+BaseAction* Exit::clone(){
+    return (new Exit(*this));
+}

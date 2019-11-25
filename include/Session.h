@@ -12,7 +12,11 @@ class Watchable;
 class Session{
 public:
     Session(const std::string &configFilePath);
+    Session(Session&);
+    Session(Session &&other);
     ~Session();
+    Session& operator=(const Session &&) ;
+    Session& operator=(const Session &);
     void start();
     void convertJson();
     std::vector<Watchable*> getContent() const;
@@ -26,7 +30,10 @@ public:
     void addActionLog(BaseAction *const action);
     void addUser(string name, string rec) ;
     void duplicateUser(string name);
-    string getInput();
+    string getInput()const;
+    void copy(const Session &other);
+    void clear();
+    void deleteUser(User *user);
 
 private:
     std::vector<Watchable*> content;

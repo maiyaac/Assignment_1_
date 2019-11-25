@@ -9,6 +9,10 @@ using namespace std;
 Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags): Watchable(id,length,tags), seriesName(seriesName),season(season),episode(episode){
 };
 
+Episode::~Episode(){
+    delete(this);
+}
+
 std::string Episode::toString() const{
     string s = "[";
     for (int i =0; i<getTags().size()-1; i++) {
@@ -16,15 +20,6 @@ std::string Episode::toString() const{
     }
     cout << this->getID() << ". " << seriesName << " " << this->getLength() << " minutes " << "S" << season << "E" << episode << " " << s.substr(0, s.length()-2) << "]" << endl;
 }
-
-Episode::Episode(const Episode &other): Watchable(other.getID(),other.getLength(),other.getTags()), seriesName(other.getSeriesName()), season(other.getSeason()), episode(other.getEpisode()){}
-Episode& Episode::operator=(const Episode& other){
-    if (this!=&other){
-        copy(other);
-    }
-    return *this;
-}
-
 
 void Episode::setSeriesName(string other){
     seriesName = other;
@@ -45,7 +40,6 @@ int Episode::getEpisode() const {
     return episode;
 }
 void Episode::copy(const Episode& other){
-    this->setId(other.getID());
     this->setLength(other.getLength());
     this->setTags(other.getTags());
     this->setSeason(other.getSeason());
@@ -57,10 +51,10 @@ Watchable* Episode::getNextWatchable(Session& s) const{
 
     vector<Watchable*> next = s.getContent();
 
+}
 
-
-
-
+Watchable* Episode::clone(){
+    return (new Episode(*this));
 }
 
 

@@ -26,3 +26,7 @@ std::string PrintActionsLog::toString() const{
     }
     return output;
 }
+
+BaseAction* PrintActionsLog::clone(){
+    return (new PrintActionsLog(*this));
+}
