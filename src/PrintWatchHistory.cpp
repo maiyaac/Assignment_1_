@@ -26,3 +26,7 @@ std::string PrintWatchHistory::toString() const{
     }
     return output;
 }
+
+BaseAction* PrintWatchHistory::clone(){
+    return (new PrintWatchHistory(*this));
+}

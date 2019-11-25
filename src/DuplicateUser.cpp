@@ -15,7 +15,7 @@ void DuplicateUser::act(Session& sess){
     input = input.substr(7, input.size()-1);
     std::string nameCopy = input.substr(0, input.find(" "));
     std::string myName = input.substr(input.find(" "), input.size()-1);
-    std::unordered_map<std::string, User*>::iterator it;
+    std::unordered_map<std::string, User*>::const_iterator it;
     it = sess.getUserMap().find(nameCopy);
     if(it==sess.getUserMap().end()){
         sess.addActionLog(this);
@@ -46,4 +46,8 @@ std::string DuplicateUser::toString() const{
         output = "DuplicateUser PENDING";
     }
     return output;
+}
+
+BaseAction* DuplicateUser::clone(){
+    return (new DuplicateUser(*this));
 }

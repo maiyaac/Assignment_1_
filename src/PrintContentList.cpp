@@ -24,3 +24,7 @@ std::string PrintContentList::toString() const{
     }
     return output;
 }
+
+BaseAction* PrintContentList::clone(){
+    return (new PrintContentList(*this));
+}

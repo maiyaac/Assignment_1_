@@ -12,9 +12,13 @@ using namespace std;
 class User{
 public:
     User(std::string& name);
+
+    User(const string &name);
+
     virtual Watchable* getRecommendation(Session& s) = 0;
     std::string getName() const;
     std::vector<Watchable*> get_history() const;
+    virtual User* clone()=0;
 protected:
     std::vector<Watchable*> history;
 private:
@@ -31,9 +35,6 @@ public:
     int getavgL() ;
     Watchable* getNextWatchable(Session &s,int avgL) ;
     bool findInHistory(Watchable * temp) ;
-    bool findInRecHistory(Watchable * temp);
-    bool isFull();
-     void clear(vector<Watchable*>);
 
 private:
     vector<Watchable*> recHistory;
@@ -42,14 +43,14 @@ private:
 
 class RerunRecommenderUser : public User {
 public:
-    RerunRecommenderUser(const std::string& name);
+    RerunRecommenderUser(std::string& name);
     virtual Watchable* getRecommendation(Session& s);
 private:
 };
 
 class GenreRecommenderUser : public User {
 public:
-    GenreRecommenderUser(const std::string& name);
+    GenreRecommenderUser(std::string& name);
     virtual Watchable* getRecommendation(Session& s);
 private:
 };

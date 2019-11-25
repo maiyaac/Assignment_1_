@@ -9,7 +9,7 @@
 #include "../include/Watchable.h"
 #include "../include/Session.h"
 
-using namespace std;
+//using namespace std;
 
 LengthRecommenderUser::LengthRecommenderUser(std::string &name) : User(name),recHistory() {
 
@@ -46,13 +46,9 @@ Watchable *LengthRecommenderUser::getNextWatchable(Session &s,int avgL) {
     for (vector<Watchable *>::iterator it = s.getContent().begin(); it != s.getContent().end(); ++it) {
         Watchable* temp=*it;//why????
     if (abs(temp->getLength() - avgL) < min)
-        if(!findInHistory(temp)&!findInRecHistory())
+        if(!findInHistory(temp))
             best = *it;// operator = in watchable
 }
-    if(best->getID()==-1) {
-        clear(recHistory);
-        best = getNextWatchable(s, avgL);
-    }
     return best;
 }
 
@@ -66,24 +62,24 @@ bool LengthRecommenderUser::findInHistory(Watchable * temp) {
 
 
 }
-bool LengthRecommenderUser::findInRecHistory(Watchable *temp) {
-    if(isFull())
-    for (vector<Watchable *>::iterator it = recHistory.begin(); it != recHistory.end(); ++it) {
-        Watchable* temp1=*it;//why????
-        if (temp1->getID()==temp->getID())// why???
-            return true;
-    }
-    return false;
-}
+//bool LengthRecommenderUser::findInRecHistory(Watchable *temp) {
+//    if(isFull())
+//    for (vector<Watchable *>::iterator it = recHistory.begin(); it != recHistory.end(); ++it) {
+//        Watchable* temp1=*it;//why????
+//        if (temp1->getID()==temp->getID())// why???
+//            return true;
+//    }
+//    return false;
+//}
+//
+//void LengthRecommenderUser::clear(vector<Watchable*> v){
+//    for (vector<Watchable *>::iterator it = recHistory.begin(); it != recHistory.end(); ++it) {
+//        delete(*it);
+//    }
 
-void LengthRecommenderUser::clear(vector<Watchable*> v){
-    for (vector<Watchable *>::iterator it = recHistory.begin(); it != recHistory.end(); ++it) {
-        delete(*it);
-    }
 
-
-    }
-
+  //  }
+//
 
 
 

@@ -20,9 +20,6 @@ vector<string> Watchable::getTags() const{
     return tags ;
 }
 
-void Watchable::setId(long other) {
-    id = other;
-}
 void Watchable::setLength(int other)   {
     length=other;
 }
