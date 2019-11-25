@@ -4,7 +4,7 @@
 
 
 void Exit::act(Session& sess){
-
+//what to implement here???
 }
 std::string Exit::toString() const{
     std::string output;
