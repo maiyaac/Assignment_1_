@@ -169,29 +169,29 @@ void Session::addUser(string name, string rec)  {
         LengthRecommenderUser *newUser = new LengthRecommenderUser(name);
         userMap.insert(make_pair(name,newUser));
     }
-//    if (rec=="rer"){
-//        RerunRecommenderUser *newUser = new RerunRecommenderUser(name);
-//        userMap.insert(make_pair(name, newUser));
-//    }
-//    if (rec=="gen"){
-//        GenreRecommenderUser *newUser = new GenreRecommenderUser(name);
-//        userMap.insert(make_pair(name, newUser));
-//    }
+    if (rec=="rer"){
+        RerunRecommenderUser *newUser = new RerunRecommenderUser(name);
+        userMap.insert(make_pair(name, newUser));
+    }
+    if (rec=="gen"){
+        GenreRecommenderUser *newUser = new GenreRecommenderUser(name);
+        userMap.insert(make_pair(name, newUser));
+    }
 }
 void Session::duplicateUser(string name){ //need to make copy constructor for each and also getrec and setname functions in user
-//    string rec = activeUser.getRec();
-//    if (rec=="len"){
-//        LengthRecommenderUser *newUser = new LengthRecommenderUser(activeUser);
-//        newUser->setName(name);
-//    }
-//    if (rec=="rer"){
-//        RerunRecommenderUser *newUser = new RerunRecommenderUser(activeUser);
-//        newUser->setName(name);
-//    }
-//    if (rec=="gen") {
-//        GenreRecommenderUser *newUser = new GenreRecommenderUser(activeUser);
-//        newUser->setName(name);
-//    }
+ /*  string rec = activeUser.getRec();
+    if (rec=="len"){
+        LengthRecommenderUser *newUser = new LengthRecommenderUser(activeUser);
+        newUser->setName(name);
+    }
+   if (rec=="rer"){
+        RerunRecommenderUser *newUser = new RerunRecommenderUser(activeUser);
+        newUser->setName(name);
+    }
+    if (rec=="gen") {
+        GenreRecommenderUser *newUser = new GenreRecommenderUser(activeUser);
+        newUser->setName(name);
+    }*/
 
 }
 void deleteUser(User *user){
