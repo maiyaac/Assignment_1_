@@ -31,3 +31,7 @@ Watchable* Movie::getNextWatchable(Session&) const{
 Watchable* Movie::clone(){
     return (new Movie(*this));
 }
+
+string Movie::stringClone(){
+    return name;
+}

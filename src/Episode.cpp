@@ -3,10 +3,12 @@
 #include "../include/Watchable.h"
 #include <iostream>
 #include "../include/Session.h"
+#include <algorithm>
 using namespace std;
 
 
 Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags): Watchable(id,length,tags), seriesName(seriesName),season(season),episode(episode){
+    nextEpisodeId = id+1;
 };
 
 Episode::~Episode(){
@@ -51,12 +53,20 @@ void Episode::copy(const Episode& other){
 
 Watchable* Episode::getNextWatchable(Session& s) const{
 
-    vector<Watchable*> next = s.getContent();
+//    vector<Watchable*> next = s.getContent();
+//    if(next.at(nextEpisodeId)->getName() == seriesName){
+//
+//    }
 
 }
 
 Watchable* Episode::clone(){
     return (new Episode(*this));
+}
+
+string Episode::stringClone(){
+    string s = seriesName + " " + "S" + to_string(season) + "E" + to_string(episode);
+    return s;
 }
 
 

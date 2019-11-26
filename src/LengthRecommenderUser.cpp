@@ -13,7 +13,7 @@ LengthRecommenderUser::LengthRecommenderUser(std::string &name) : User(name){
     setRec("len");
 
 }
-LengthRecommenderUser::LengthRecommenderUser(LengthRecommenderUser &other) : User(other) {}
+
 
 User *LengthRecommenderUser::clone() {
     return new LengthRecommenderUser(*this);
@@ -38,18 +38,20 @@ int LengthRecommenderUser::getavgL() {
 
 Watchable *LengthRecommenderUser::getNextWatchable(Session &s,int avgL) {
     Watchable* best=s.getContent().front();
-    int min =INTMAX_MAX;
+    long min =INTMAX_MAX;
     for (vector<Watchable *>::const_iterator it = s.getContent().begin(); it != s.getContent().end(); ++it) {
-        if (abs((*it)->getLength() - avgL) < min)
-            if (!findInHistory(*it))
-                best = *it;// operator = in watchable
+        Watchable* temp=*it;
+        if (abs((temp)->getLength() - avgL) < min)
+            if (!findInHistory(temp))
+                best = temp;// operator = in watchable
     }
     return best;
 }
 
 bool LengthRecommenderUser::findInHistory(Watchable * temp) {
     for (vector<Watchable *>::iterator it = history.begin(); it != history.end(); ++it) {
-        if ((*it)->getID()==temp->getID())// why???
+        Watchable* tempT=*it;
+        if ((tempT)->getID()==temp->getID())// why???
             return true;
     }
     return false;
