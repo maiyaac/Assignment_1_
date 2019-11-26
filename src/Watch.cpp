@@ -15,18 +15,16 @@ void Watch::act(Session& sess){
     long watchID = atol(watchinput.c_str());
     std::vector<Watchable*> content = sess.getContent();
     Watchable* toWatch =((content).at(watchID));
-    std::cout << "Watching " << toWatch->getName();
+    std::cout << "Watching " << toWatch->stringClone();
     sess.getActiveUser()->addToHistory(toWatch);
     Watchable* next = sess.getActiveUser()->getRecommendation(sess);
-    std::cout << "We recommend watching" << next->stringClone() << ", continue watching? [y/n]";
-    string s ="";
-    cin >> s;
-    if (s=="y"){
-        Watch(sess);
+    std::cout << " We recommend watching " << next->stringClone() << ", continue watching? [y/n]" << endl;
+
+
     }
 
 
-}
+
 std::string Watch::toString() const{
     return "hi";
 }

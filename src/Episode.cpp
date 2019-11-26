@@ -34,7 +34,7 @@ void Episode::setSeason(int other){
 void Episode::setEpisode(int other){
     episode = other;
 }
-string Episode::getSeriesName() const {
+string Episode::getName() const {
     return seriesName;
 }
 int Episode::getSeason() const{
@@ -48,7 +48,7 @@ void Episode::copy(const Episode& other){
     this->setTags(other.getTags());
     this->setSeason(other.getSeason());
     this->setEpisode(other.getEpisode());
-    this->setSeriesName(other.getSeriesName());
+    this->setSeriesName(other.getName());
 }
 
 Watchable* Episode::getNextWatchable(Session& s) const{

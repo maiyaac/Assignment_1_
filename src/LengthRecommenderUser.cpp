@@ -28,10 +28,8 @@ Watchable *LengthRecommenderUser::getRecommendation(Session &s) {
 
 int LengthRecommenderUser::getavgL() {
     long sum=0;
-    for (vector<Watchable*>::iterator it = history.begin() ; it != history.end(); ++it)   {
-        Watchable* temp=*it;
-        sum=sum+(temp->getLength());// whattttttt
-    }
+    for(int i=0;i<history.size();i++)
+        sum=sum+(history.at(i)->getLength());// whattttttt
     return sum/history.size();
 
 }
@@ -39,11 +37,12 @@ int LengthRecommenderUser::getavgL() {
 Watchable *LengthRecommenderUser::getNextWatchable(Session &s,int avgL) {
     Watchable* best=s.getContent().front();
     long min =INTMAX_MAX;
-    for (vector<Watchable *>::const_iterator it = s.getContent().begin(); it != s.getContent().end(); ++it) {
-        Watchable* temp=*it;
-        if (abs((temp)->getLength() - avgL) < min)
-            if (!findInHistory(temp))
-                best = temp;// operator = in watchable
+    for ( int i=0; i<s.getContent().size();i++){
+   // for (vector<Watchable *>::const_iterator it = s.getContent().begin(); it != s.getContent().end(); ++it) {
+      //  Watchable* temp=*it;
+        if (abs((s.getContent().at(i))->getLength() - avgL) < min)
+            if (!findInHistory(s.getContent().at(i)))
+                best = s.getContent().at(i);// operator = in watchable
     }
     return best;
 }
