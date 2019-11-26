@@ -31,6 +31,7 @@ public:
     void addUser(string name, string rec) ;
     void duplicateUser(string myname, string othername);
     string getInput()const;
+    string setInput(string newinput);
     void copy(const Session &other);
     void clear();
     void deleteUser(User *user);

@@ -19,12 +19,13 @@ void Watch::act(Session& sess){
     sess.getActiveUser()->addToHistory(toWatch);
     Watchable* next = sess.getActiveUser()->getRecommendation(sess);
     std::cout << " We recommend watching " << next->stringClone() << ", continue watching? [y/n]" << endl;
-
-
+    string nextinput="";
+    getline(cin, nextinput);
+  if (nextinput == "y"){
+        sess.setInput("watch" + to_string(next->getID()));
+        Watch(sess);
     }
-
-
-
+    }
 std::string Watch::toString() const{
     return "hi";
 }

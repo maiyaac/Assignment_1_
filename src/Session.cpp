@@ -81,10 +81,7 @@ void Session::start() {
     std::cout << "SPLFlix is now on!" << endl;
     while(!terminate){
         getline(cin,input);
-        string action;
-        if(input.size()==1)
-            action=input;
-         action=input.substr(0,input.find(" "));
+        string action=input.substr(0,input.find(" "));
         if(action.compare("createuser")==0){
             cout<<"hello";
             CreateUser *newuser = new CreateUser;
@@ -122,14 +119,6 @@ void Session::start() {
         else if(action.compare("Exit")==0){//need to check what to implement here.. terminate??
             terminate=true;
         }
-        else if(action.compare("y")==0){//need to check what to implement here.. terminate??
-            Watch *watch = new Watch;
-            watch->act(*this);
-        }
-        else if(action.compare("n")==0)
-        {
-
-        }
         else{
             cout << "Invalid input";
         }
@@ -142,6 +131,10 @@ std::vector<Watchable*> Session::getContent() const{
 
 string Session::getInput()const{
     return input;
+}
+
+string Session::setInput(string newinput){
+    input = newinput;
 }
 
 const vector<BaseAction *> &Session::getActionsLog() const {
