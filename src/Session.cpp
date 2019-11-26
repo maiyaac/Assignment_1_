@@ -179,7 +179,7 @@ void Session::addUser(string name, string rec)  {
     }
 }
 void Session::duplicateUser(string name){ //need to make copy constructor for each and also getrec and setname functions in user
- /*  string rec = activeUser.getRec();
+   string rec = activeUser->getRec();
     if (rec=="len"){
         LengthRecommenderUser *newUser = new LengthRecommenderUser(activeUser);
         newUser->setName(name);
@@ -191,11 +191,15 @@ void Session::duplicateUser(string name){ //need to make copy constructor for ea
     if (rec=="gen") {
         GenreRecommenderUser *newUser = new GenreRecommenderUser(activeUser);
         newUser->setName(name);
-    }*/
+    }
 
 }
 void deleteUser(User *user){
     delete(user);
+}
+
+void Session::deleteUserFromMap(string name){
+    userMap.erase(name);
 }
 
 void Session::convertJson(){

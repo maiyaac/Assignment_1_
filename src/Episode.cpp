@@ -14,11 +14,13 @@ Episode::~Episode(){
 }
 
 std::string Episode::toString() const{
+    string output="";
     string s = "[";
-    for (int i =0; i<getTags().size()-1; i++) {
+    for (int i =0; i<getTags().size(); i++) {
         s = s + getTags().at(i) + ", ";
     }
-    cout << this->getID() << ". " << seriesName << " " << this->getLength() << " minutes " << "S" << season << "E" << episode << " " << s.substr(0, s.length()-2) << "]" << endl;
+    output = output + to_string(this->getID()) + ". " + seriesName + " " + to_string(getLength()) + " minutes S" + to_string(season) + "E" + to_string(episode) + " " + s.substr(0,s.length()-2) + "]";
+    return output;
 }
 
 void Episode::setSeriesName(string other){

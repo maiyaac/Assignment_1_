@@ -7,9 +7,11 @@
 
 void PrintContentList::act (Session& sess){
     std::vector<Watchable*> content = sess.getContent();
-    for (int i=0; i<content.size()-1; i++){
-        std::cout << content[i]->toString();
+    for (int i=0; i<content.size(); i++){
+          std::cout << content.at(i)->toString() << endl;
     }
+    complete();
+    sess.addActionLog(this);
 }
 std::string PrintContentList::toString() const{
     std::string output;

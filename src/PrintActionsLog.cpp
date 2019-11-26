@@ -8,8 +8,8 @@
 
 void PrintActionsLog::act(Session& sess) {
     std::vector<BaseAction *> actions = sess.getActionsLog();
-    for (int i = 0; i < actions.size() - 1; i++) {
-        std::cout << actions[i]->toString();
+    for (int i = 0; i < actions.size() ; i++) {
+        std::cout << actions.at(i)->toString() << endl;
     }
 }
 std::string PrintActionsLog::toString() const{

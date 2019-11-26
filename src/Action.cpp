@@ -20,6 +20,7 @@ void BaseAction::complete() {
 void BaseAction::error(const std::string &errorMsg) {
     setErrorMsg(errorMsg);
     setStatus(ERROR);
+    std::cout << errorMsg << std::endl;
 
 }
 

@@ -34,6 +34,7 @@ public:
     void copy(const Session &other);
     void clear();
     void deleteUser(User *user);
+    void deleteUserFromMap(string name);
 
 private:
     std::vector<Watchable*> content;

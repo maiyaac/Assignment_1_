@@ -10,18 +10,17 @@
 void DeleteUser::act(Session & sess){
     std::string input = sess.getInput();
     input = input.substr(11, input.size()-1);
-    std::string name = input.substr(0, input.size()-1);
+    std::string name = input.substr(0, input.size());
     std::unordered_map<std::string, User*>::const_iterator it = sess.getUserMap().find(name);
     if(it==sess.getUserMap().end()){
+        error("The user does not exist!");
         sess.addActionLog(this);
-        return error("The user does not exist!");
     }
     else{
-        std::unordered_map<std::string, User*> map = sess.getUserMap(); //NOT SURE
-        //sess.deleteUser(it->second);
-        map.erase(name);
-        sess.addActionLog(this);
+        sess.deleteUserFromMap(name);
+      //  sess.deleteUser(it->second); MUST IMPLEMENT THIS!!
         complete();
+        sess.addActionLog(this);
     }
 }
 std::string DeleteUser::toString() const{
@@ -29,7 +28,6 @@ std::string DeleteUser::toString() const{
     if (getStatus() == ERROR){
         output = "DeleteUser ERROR" + getErrorMsg();
     }
-
     if (getStatus() == COMPLETED){
         output = "DeleteUser COMPLETED";
     }
