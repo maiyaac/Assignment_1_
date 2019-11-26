@@ -22,7 +22,7 @@ public:
     long getID() const;
     void setTags(vector<string> other);
     void setLength(int other);
-    std::string getName() const;
+    virtual std::string getName() const;
 
 
 private:
@@ -55,7 +55,7 @@ public:
     void setSeriesName(string other);
     void setSeason(int other);
     void setEpisode(int other);
-    string getSeriesName() const ;
+    virtual string getName() const ;
     int getSeason() const;
     int getEpisode() const;
     virtual Watchable* clone();
