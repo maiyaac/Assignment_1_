@@ -11,11 +11,13 @@ Movie::~Movie(){
 }
 
 string Movie::toString() const {
+    string output ="";
     string s = "";
-    for (int i =0; i<getTags().size()-1; i++) {
+    for (int i=0; i<getTags().size(); i++) {
         s = s + getTags().at(i) + ", ";
     }
-    cout << this->getID() << name << this->getLength() << "[" << s.substr(0, s.length() - 1) << "]";
+    output = output + to_string(this->getID()) + ". " + name + " " + to_string(this->getLength()) + " minutes " "[" + s.substr(0,s.length()-2) + "]";
+    return output;
 }
 
 string Movie::getName() const {

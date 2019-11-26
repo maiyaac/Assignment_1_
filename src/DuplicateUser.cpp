@@ -12,19 +12,19 @@
 
 void DuplicateUser::act(Session& sess){
     std::string input = sess.getInput();
-    input = input.substr(7, input.size()-1);
+    input = input.substr(8, input.size());
     std::string nameCopy = input.substr(0, input.find(" "));
-    std::string myName = input.substr(input.find(" "), input.size()-1);
+    std::string myName = input.substr(input.find(" ")+1, input.size());
     std::unordered_map<std::string, User*>::const_iterator it;
     it = sess.getUserMap().find(nameCopy);
     if(it==sess.getUserMap().end()){
+        error("The user does not exist!");
         sess.addActionLog(this);
-        return error("The user does not exist!");
     }
     it = sess.getUserMap().find(myName);
     if (it!=sess.getUserMap().end()){
+        error("A user with this name already exists!");
         sess.addActionLog(this);
-        return error("A user with this name already exists!");
     }
     else {
         sess.duplicateUser(myName);

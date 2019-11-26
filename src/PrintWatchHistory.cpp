@@ -8,7 +8,7 @@
 void PrintWatchHistory::act (Session& sess){
     std::vector<Watchable*> history = sess.getActiveUser()->get_history();
     for (int i=0; i<history.size()-1; i++){
-        std::cout << history[i]->toString();
+        std::cout << history.at(i)->toString();
     }
 
 }

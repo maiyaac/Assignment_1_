@@ -7,27 +7,32 @@ using namespace std;
 
 void CreateUser::act(Session &sess) {
     string s="";
-    //sess->addActionLog(new CreateUser());
     s=sess.getInput();
-    s=s.substr(10,s.size()-1);// check
+    cout << s << endl;
+    s=s.substr(11,s.size());
+    cout << s << endl;
     string name=s.substr(0,s.find(" "));//check
+    cout << name << endl;
     string recG=s.substr(s.find(" ")+1,s.size());
+    cout << recG << endl;
     if(recG.compare("len")!=0&recG.compare("rer")!=0&recG.compare("gen")!=0){
+        error("No such recommendation option!");
         sess.addActionLog(this);
-        return error("No such recommendation option!");
     }
     unordered_map<string,User*>::const_iterator it = sess.getUserMap().find(name);
     if(it!=sess.getUserMap().end()) {
+        error("A user with this name already exists!");
         sess.addActionLog(this);
-        return error("A user with this name already exists!");
     }
-    sess.addUser(name, recG);
-    sess.addActionLog(this);
-    complete();
+    else{
+        sess.addUser(name, recG);
+        complete();
+        sess.addActionLog(this);
+    }
 }
 
 string CreateUser::toString() const {
-    string s="Create User ";
+    string s="CreateUser: ";
     if(getStatus()==ERROR)
         s=s+"ERROR "+getErrorMsg();
     if(getStatus()==COMPLETED)

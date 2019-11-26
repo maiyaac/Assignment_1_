@@ -8,24 +8,24 @@
 
 void ChangeActiveUser::act(Session& sess){
     std::string input = sess.getInput();
-    input = input.substr(10, input.size()-1);
-    std::string name = input.substr(0, input.size()-1);
+    input = input.substr(11, input.size());
+    std::string name = input.substr(0, input.size());
     std::unordered_map<std::string, User*>::const_iterator it;
     it = sess.getUserMap().find(name);
     if(it==sess.getUserMap().end()){
+        error("The user does not exist!");
         sess.addActionLog(this);
-        return error("The user does not exist!");
     }
     else {
         sess.setActiveUser(it->second);
-        sess.addActionLog(this);
         complete();
+        sess.addActionLog(this);
     }
 }
 std::string ChangeActiveUser::toString() const {
     std::string output;
     if (getStatus() == ERROR){
-        output = "ChangeUser ERROR" + getErrorMsg();
+        output = "ChangeUser ERROR: " + getErrorMsg();
     }
 
     if (getStatus() == COMPLETED){

@@ -13,6 +13,7 @@ LengthRecommenderUser::LengthRecommenderUser(std::string &name) : User(name){
     setRec("len");
 
 }
+LengthRecommenderUser::LengthRecommenderUser(LengthRecommenderUser &other) : User(other) {}
 
 User *LengthRecommenderUser::clone() {
     return new LengthRecommenderUser(*this);
