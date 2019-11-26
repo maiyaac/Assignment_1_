@@ -14,7 +14,6 @@ using namespace std;
 class User{
 public:
     User(string &name);
-    User(User&);
     virtual Watchable* getRecommendation(Session& s) = 0;
     std::string getName() const;
     std::vector<Watchable*> get_history() const;
@@ -35,7 +34,6 @@ private:
 class LengthRecommenderUser : public User {
 public:
     LengthRecommenderUser(std::string &name);
-    LengthRecommenderUser(LengthRecommenderUser &other);
     virtual Watchable* getRecommendation(Session& s);
     virtual User * clone() ;
     int getavgL() ;
@@ -50,7 +48,6 @@ private:
 class RerunRecommenderUser : public User {
 public:
     RerunRecommenderUser(std::string& name);
-    RerunRecommenderUser(RerunRecommenderUser &other);
     virtual Watchable* getRecommendation(Session& s);
     virtual User * clone() ;
 
@@ -61,7 +58,6 @@ private:
 class GenreRecommenderUser : public User {
 public:
     GenreRecommenderUser(std::string& name);
-    GenreRecommenderUser(GenreRecommenderUser &other);
     virtual Watchable* getRecommendation(Session& s);
     virtual User * clone() ;
     void addToHistory(Watchable*);

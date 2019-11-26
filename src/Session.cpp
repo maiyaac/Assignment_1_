@@ -178,21 +178,12 @@ void Session::addUser(string name, string rec)  {
         userMap.insert(make_pair(name, newUser));
     }
 }
-void Session::duplicateUser(string name){ //need to make copy constructor for each and also getrec and setname functions in user
-   string rec = activeUser->getRec();
-    if (rec=="len"){
-        LengthRecommenderUser *newUser = new LengthRecommenderUser(activeUser);
-        newUser->setName(name);
-    }
-   if (rec=="rer"){
-        RerunRecommenderUser *newUser = new RerunRecommenderUser(activeUser);
-        newUser->setName(name);
-    }
-    if (rec=="gen") {
-        GenreRecommenderUser *newUser = new GenreRecommenderUser(activeUser);
-        newUser->setName(name);
-    }
-
+void Session::duplicateUser(string myname, string othername){
+        std::unordered_map<std::string, User*>::const_iterator it;
+        it = userMap.find(othername);
+        User *newUser = it->second->clone();
+        newUser->setName(myname);
+        userMap.insert(make_pair(myname,newUser));
 }
 void deleteUser(User *user){
     delete(user);

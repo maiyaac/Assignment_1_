@@ -29,7 +29,7 @@ public:
     void setActiveUser(User *activeUser);
     void addActionLog(BaseAction *const action);
     void addUser(string name, string rec) ;
-    void duplicateUser(string name);
+    void duplicateUser(string myname, string othername);
     string getInput()const;
     void copy(const Session &other);
     void clear();

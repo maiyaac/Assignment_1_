@@ -27,23 +27,23 @@ void DuplicateUser::act(Session& sess){
         sess.addActionLog(this);
     }
     else {
-        sess.duplicateUser(myName);
-        sess.addActionLog(this);
+        sess.duplicateUser(myName, nameCopy);
         complete();
+        sess.addActionLog(this);
     }
 }
 
 std::string DuplicateUser::toString() const{
     std::string output;
     if (getStatus() == ERROR){
-        output = "DuplicateUser ERROR" + getErrorMsg();
+        output = "DuplicateUser: ERROR" + getErrorMsg();
     }
 
     if (getStatus() == COMPLETED){
-        output = "DuplicateUser COMPLETED";
+        output = "DuplicateUser: COMPLETED";
     }
     if (getStatus() == PENDING){
-        output = "DuplicateUser PENDING";
+        output = "DuplicateUser: PENDING";
     }
     return output;
 }

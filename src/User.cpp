@@ -10,11 +10,6 @@
 using namespace std;
 User::User( string &name) : name(name) ,rec(""){}
 
-User::User(User &other) {
-    name=other.name;
-    rec=other.rec;
-}
-
 std::string User::getName() const{
    return name;
 }
@@ -23,7 +18,7 @@ vector<Watchable*> User:: get_history() const{
    return history;
 }
 
-void User::addToHistory(Watchable * s) {
+void User::addToHistory(Watchable* s) {
     history.push_back(s);
 
 }

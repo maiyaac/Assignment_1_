@@ -16,7 +16,7 @@ GenreRecommenderUser::GenreRecommenderUser(std::string &name) : User(name),genre
 
 }
 
-GenreRecommenderUser::GenreRecommenderUser(GenreRecommenderUser &other) : User(other), genre(other.getGenre){}
+
 
 Watchable *GenreRecommenderUser::getRecommendation(Session &s) {
     for (vector<Watchable *>::iterator it = s.getContent().begin();it != s.getContent().end(); ++it)
@@ -91,6 +91,7 @@ bool GenreRecommenderUser::findInHistory(Watchable * temp) {
             return true;
     }
     return false;
+}
 
 
 

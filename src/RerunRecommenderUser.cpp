@@ -14,7 +14,7 @@ using namespace std;
 RerunRecommenderUser::RerunRecommenderUser( string& name):User(name) ,lastId(1){
     setRec("rer");
 }
-RerunRecommenderUser::RerunRecommenderUser(RerunRecommenderUser &other) : User(other) {}
+
 
 Watchable *RerunRecommenderUser::getRecommendation(Session &s) {
     Watchable* nextWatchable= history.at(lastId);
