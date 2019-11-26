@@ -17,6 +17,7 @@ Session::Session(const std::string &configFilePath):content(),actionsLog (),user
     User *default1 = new LengthRecommenderUser(*s); //need to delete
     userMap.insert(make_pair("default",default1));
     setActiveUser(default1);
+
 }
 Session::Session(Session &other){
     copy(other);
@@ -47,11 +48,19 @@ Session& Session ::operator=(const Session&& other) {
 }
 
 void Session::clear(){
-    content.clear();
-    actionsLog.clear();
-    userMap.clear();
-    activeUser = nullptr;
+    for (unordered_map<string,User*>::const_iterator it=userMap.begin(); it!=userMap.end(); ++it){
+        delete(it->second);}
+    for (vector<Watchable*>::const_iterator it=content.begin(); it!=content.end(); ++it)
+        delete (*it);
+        /*for(vector<string>::const_iterator itr=(*it)->getTags().begin(); itr!=(*it)->getTags().end(); ++it) {
+            delete (*itr);*/
+
+    for (vector<BaseAction*>::const_iterator it=actionsLog.begin(); it!=actionsLog.end(); ++it)
+        delete(*it);
+    delete(activeUser);
     input = "";
+
+
 }
 
 void Session::copy(const Session &other){
@@ -70,7 +79,9 @@ void Session::copy(const Session &other){
 }
 
 
-Session::~Session() {}
+Session::~Session( ) {
+    clear();
+}
 
 
 
@@ -213,13 +224,14 @@ void Session::convertJson(){
     //movies
     long id=0 ;
     for (int i = 0; i < j["movies"].size(); i++) {
-        id++;
         const std::string &name = j["movies"][i]["name"];
         int length = j["movies"][i]["length"];
         const std::vector<string> &tags = j["movies"][i]["tags"];
         content.push_back(new Movie(i, name, length, tags));
+        id++;
     }
     //tv shows
+    id=id-1;
     for (int i = 0; i < j["tv_series"].size(); i++) {
         id++;
         const std::string &seriesName = j["tv_series"][i]["name"];

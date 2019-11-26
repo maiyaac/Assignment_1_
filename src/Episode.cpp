@@ -7,7 +7,7 @@
 using namespace std;
 
 
-Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags): Watchable(id,length,tags), seriesName(seriesName),season(season),episode(episode){
+Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags): Watchable(id,length,tags), seriesName(seriesName),season(season),episode(episode-1){
     nextEpisodeId = id+1;
 };
 
@@ -21,7 +21,7 @@ std::string Episode::toString() const{
     for (int i =0; i<getTags().size(); i++) {
         s = s + getTags().at(i) + ", ";
     }
-    output = output + to_string(this->getID()) + ". " + seriesName + " " + to_string(getLength()) + " minutes S" + to_string(season) + "E" + to_string(episode) + " " + s.substr(0,s.length()-2) + "]";
+    output = output + to_string(this->getID()+1) + ". " + seriesName + " " + to_string(getLength()) + " minutes S" + to_string(season) + "E" + to_string(episode) + " " + s.substr(0,s.length()-2) + "]";
     return output;
 }
 
@@ -53,11 +53,9 @@ void Episode::copy(const Episode& other){
 
 Watchable* Episode::getNextWatchable(Session& s) const{
 
-//    vector<Watchable*> next = s.getContent();
-//    if(next.at(nextEpisodeId)->getName() == seriesName){
-//
-//    }
-
+    if(s.getContent().at((this->getID()))->getName().compare(this->getName())==0)
+        return s.getContent().at(this->getID());
+    else return nullptr;
 }
 
 Watchable* Episode::clone(){
