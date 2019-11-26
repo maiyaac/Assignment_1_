@@ -41,8 +41,10 @@ Watchable *LengthRecommenderUser::getNextWatchable(Session &s,int avgL) {
    // for (vector<Watchable *>::const_iterator it = s.getContent().begin(); it != s.getContent().end(); ++it) {
       //  Watchable* temp=*it;
         if (abs((s.getContent().at(i))->getLength() - avgL) < min)
-            if (!findInHistory(s.getContent().at(i)))
+            if (!findInHistory(s.getContent().at(i))) {
                 best = s.getContent().at(i);// operator = in watchable
+                min = abs((s.getContent().at(i))->getLength() - avgL);
+            }
     }
     return best;
 }

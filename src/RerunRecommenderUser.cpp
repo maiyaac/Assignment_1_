@@ -11,7 +11,7 @@
 #include "../include/Session.h"
 
 using namespace std;
-RerunRecommenderUser::RerunRecommenderUser( string& name):User(name) ,lastId(1){
+RerunRecommenderUser::RerunRecommenderUser( string& name):User(name) ,lastId(0){
     setRec("rer");
 }
 
