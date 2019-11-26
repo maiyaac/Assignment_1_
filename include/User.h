@@ -18,7 +18,7 @@ public:
     std::string getName() const;
     std::vector<Watchable*> get_history() const;
     virtual User* clone()=0;
-    void addToHistory(Watchable*);
+    virtual void addToHistory(Watchable*);
     void setRec(string);
     string getRec();
     void setName(string);
@@ -60,7 +60,7 @@ public:
     GenreRecommenderUser(std::string& name);
     virtual Watchable* getRecommendation(Session& s);
     virtual User * clone() ;
-    void addToHistory(Watchable*);
+    virtual void addToHistory(Watchable*);
     void findNextGenre();
     bool findInHistory(Watchable *temp);
 
