@@ -40,18 +40,16 @@ Watchable *LengthRecommenderUser::getNextWatchable(Session &s,int avgL) {
     Watchable* best=s.getContent().front();
     int min =INTMAX_MAX;
     for (vector<Watchable *>::const_iterator it = s.getContent().begin(); it != s.getContent().end(); ++it) {
-        Watchable *temp = *it;
-        if (abs(temp->getLength() - avgL) < min)
-            if (!findInHistory(temp))
-                best = temp;// operator = in watchable
+        if (abs((*it)->getLength() - avgL) < min)
+            if (!findInHistory(*it))
+                best = *it;// operator = in watchable
     }
     return best;
 }
 
 bool LengthRecommenderUser::findInHistory(Watchable * temp) {
     for (vector<Watchable *>::iterator it = history.begin(); it != history.end(); ++it) {
-        Watchable* temp1=*it;//why????
-        if (temp1->getID()==temp->getID())// why???
+        if ((*it)->getID()==temp->getID())// why???
             return true;
     }
     return false;

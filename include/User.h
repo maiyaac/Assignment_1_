@@ -66,11 +66,12 @@ public:
     virtual User * clone() ;
     void addToHistory(Watchable*);
     void findNextGenre();
-
+    bool findInHistory(Watchable *temp);
 
 private:
    unordered_map<string, int> genre;
    pair<string,int > maxGenre;
+
 
 };
 

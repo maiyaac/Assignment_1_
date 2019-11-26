@@ -17,7 +17,7 @@ RerunRecommenderUser::RerunRecommenderUser( string& name):User(name) ,lastId(1){
 RerunRecommenderUser::RerunRecommenderUser(RerunRecommenderUser &other) : User(other) {}
 
 Watchable *RerunRecommenderUser::getRecommendation(Session &s) {
-    Watchable* nextWatchable= history[lastId];
+    Watchable* nextWatchable= history.at(lastId);
     lastId=(lastId+1)%history.size();
     return nextWatchable;
 }
