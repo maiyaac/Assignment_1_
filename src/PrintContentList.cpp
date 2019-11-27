@@ -6,7 +6,7 @@
 #include "../include/Session.h"
 
 void PrintContentList::act (Session& sess){
-    std::vector<Watchable*> content = sess.getContent();
+    std::vector<Watchable*> content = *(sess.getContent());
     for (int i=0; i<content.size(); i++){
           std::cout << content.at(i)->toString() << endl;
     }

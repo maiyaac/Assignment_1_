@@ -15,11 +15,11 @@ public:
     Session(Session&);
     Session(Session &&other);
     ~Session();
-    Session& operator=(const Session &&) ;
-    Session& operator=(const Session &);
+    Session& operator=( Session &&) ;
+    Session& operator=( Session &);
     void start();
     void convertJson();
-    std::vector<Watchable*> getContent() const;
+    std::vector<Watchable*>* getContent()  ;
     const std::vector<BaseAction *> &getActionsLog() const;
     const std::unordered_map<std::string, User *> &getUserMap() const;
     User *getActiveUser() const;
@@ -31,11 +31,12 @@ public:
     void addUser(string name, string rec) ;
     void duplicateUser(string myname, string othername);
     string getInput()const;
-    void copy(const Session &other);
+    void copy( Session &other);
     void clear();
     void deleteUser(User *user);
     void deleteUserFromMap(string name);
-
+    void setInput(string);
+    void watchN();
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;

@@ -18,6 +18,7 @@ void DuplicateUser::act(Session& sess){
     std::unordered_map<std::string, User*>::const_iterator it;
     it = sess.getUserMap().find(nameCopy);
     if(it==sess.getUserMap().end()){
+
         error("The user does not exist!");
         sess.addActionLog(this);
     }

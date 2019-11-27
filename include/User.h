@@ -14,9 +14,11 @@ using namespace std;
 class User{
 public:
     User(string &name);
+    ~User();
+    User(User&);
     virtual Watchable* getRecommendation(Session& s) = 0;
     std::string getName() const;
-    std::vector<Watchable*> get_history() const;
+    std::vector<Watchable*>* get_history() ;
     virtual User* clone()=0;
     virtual void addToHistory(Watchable*);
     void setRec(string);

@@ -6,9 +6,12 @@
 #include "../include/Session.h"
 
 void PrintWatchHistory::act (Session& sess){
-    std::vector<Watchable*> history = sess.getActiveUser()->get_history();
-    for (int i=0; i<history.size()-1; i++){
-        std::cout << history.at(i)->toString();
+    cout<<sess.getActiveUser()->getName()<<endl;
+    std::vector<Watchable*>* history = sess.getActiveUser()->get_history();
+    for (int i=0; i<history->size(); i++){
+        string s= history->at(i)->toString();
+        s=s.substr(s.find(" "),s.size());
+        std::cout << i+1<<"."<<s<<endl;
     }
 
 }

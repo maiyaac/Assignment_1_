@@ -76,6 +76,7 @@ public:
 class Watch : public BaseAction {
 public:
     virtual void act(Session& sess);
+    virtual ~Watch();
     virtual std::string toString() const;
     virtual BaseAction* clone();
 };

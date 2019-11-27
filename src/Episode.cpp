@@ -53,8 +53,8 @@ void Episode::copy(const Episode& other){
 
 Watchable* Episode::getNextWatchable(Session& s) const{
 
-    if(s.getContent().at((this->getID()))->getName().compare(this->getName())==0)
-        return s.getContent().at(this->getID());
+    if(s.getContent()->at((this->getID()))->getName().compare(this->getName())==0)
+        return s.getContent()->at(this->getID()+1);
     else return nullptr;
 }
 

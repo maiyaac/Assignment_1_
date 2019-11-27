@@ -15,15 +15,12 @@ GenreRecommenderUser::GenreRecommenderUser(std::string &name) : User(name),genre
     setRec("gen");
 
 }
-
-
-
 Watchable *GenreRecommenderUser::getRecommendation(Session &s) {
-    for (int i=0;i<s.getContent().size();i++)
+    for (int i=0;i<s.getContent()->size();i++)
     {
-        if(!findInHistory(s.getContent().at(i)))
-            if (find((s.getContent().at(i))->getTags().begin(), (s.getContent().at(i))->getTags().end(), maxGenre.first) !=  (s.getContent().at(i))->getTags().end())
-                return (s.getContent().at(i));
+        if(!findInHistory(s.getContent()->at(i)))
+            if (find((s.getContent()->at(i))->getTags().begin(), (s.getContent()->at(i))->getTags().end(), maxGenre.first) !=  (s.getContent()->at(i))->getTags().end())
+                return (s.getContent()->at(i));
             }
 
     findNextGenre();
