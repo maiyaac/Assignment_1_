@@ -15,7 +15,7 @@ public:
     Session(const std::string &configFilePath);
     Session(Session&);
     Session(Session &&other);
-    ~Session();
+    virtual ~Session();
     Session& operator=( Session &&) ;
     Session& operator=( Session &);
     void start();

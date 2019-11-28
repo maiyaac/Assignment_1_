@@ -40,3 +40,4 @@ std::string ChangeActiveUser::toString() const {
 BaseAction* ChangeActiveUser::clone(){
     return (new ChangeActiveUser(*this));
 }
+ChangeActiveUser::~ChangeActiveUser() {}

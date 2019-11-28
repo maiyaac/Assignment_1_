@@ -52,3 +52,5 @@ std::string DuplicateUser::toString() const{
 BaseAction* DuplicateUser::clone(){
     return (new DuplicateUser(*this));
 }
+
+DuplicateUser::~DuplicateUser() {}

@@ -66,13 +66,21 @@ Session& Session ::operator=( Session&& other) {
 
 void Session::clear(){
 
-    for( auto &item : content)
+
+    for( auto &item : content) {
         delete(item);
-    for( auto &item : userMap)
+    }
+    for( auto &item : userMap) {
         delete(item.second);
-    for( auto &item : actionsLog)
+    }
+
+    for( auto &item : actionsLog) {
         delete(item);
-    delete(activeUser);
+    }
+    content.clear();
+    userMap.clear();
+    actionsLog.clear();
+    activeUser= nullptr;
     input = "";
 
 
@@ -102,80 +110,61 @@ void Session::copy( Session &other){
 
 void Session::start() {
     std::cout << "SPLFlix is now on!" << endl;
-    while(!terminate){
-        getline(cin,input);
-
+    while (!terminate) {
+        getline(cin, input);
         string action;
-        if(input.find(" "))
-              action=input.substr(0,input.find(" "));
+        if (input.find(" "))
+            action = input.substr(0, input.find(" "));
         else {
             action = input;
         }
+            if (action.compare("createuser") == 0) {
+                CreateUser *newuser = new CreateUser;
+                newuser->act(*this);
 
-        if(action.compare("createuser")==0&input.size()>action.size()){
+            } else if (action.compare("changeuser") == 0 & input.size() > action.size()) {
+                ChangeActiveUser *changeuser = new ChangeActiveUser;
+                changeuser->act(*this);
 
-        string action=input.substr(0,input.find(" "));
-        if(action.compare("createuser")==0){
-
-            cout<<"hello";
-            CreateUser *newuser = new CreateUser;
-            newuser->act(*this);
-            delete(newuser);
-
-        }
-        else if(action.compare("changeuser")==0&input.size()>action.size()){
-            cout<<"hello";
-            ChangeActiveUser *changeuser = new ChangeActiveUser;
-            changeuser->act(*this);
-            delete(changeuser);
-
-        }
-        else if(action.compare("deleteuser")==0&input.size()>action.size()){
-            DeleteUser *deleteuser = new DeleteUser;
-            deleteuser->act(*this);
-            delete(deleteuser);
+            } else if (action.compare("deleteuser") == 0 & input.size() > action.size()) {
+                DeleteUser *deleteuser = new DeleteUser;
+                deleteuser->act(*this);
 
 
+            } else if (action.compare("dupuser") == 0 & input.size() > action.size()) {
+                DuplicateUser *dupuser = new DuplicateUser;
+                dupuser->act(*this);
 
-        }
-        else if(action.compare("dupuser")==0&input.size()>action.size()){
-            DuplicateUser *dupuser = new DuplicateUser;
-            dupuser->act(*this);
-            delete(dupuser);
+            } else if (action.compare("log") == 0) {
+                PrintActionsLog *actionlog = new PrintActionsLog;
+                actionlog->act(*this);
 
-        }
-        else if(action.compare("log")==0){
-            PrintActionsLog *actionlog = new PrintActionsLog;
-            actionlog->act(*this);
-            delete(actionlog);
 
-        }
-        else if(action.compare("content")==0){
-            PrintContentList *printcontent = new PrintContentList;
-            printcontent->act(*this);
-            delete(printcontent);
+            } else if (action.compare("content") == 0) {
+                PrintContentList *printcontent = new PrintContentList;
+                printcontent->act(*this);
 
-        }
-        else if(action.compare("watchhist")==0){
-            PrintWatchHistory *printhistory = new PrintWatchHistory;
-            printhistory->act(*this);
-            delete(printhistory);
 
-        }
-        else if(action.compare("watch")==0&input.size()>action.size()){ //still need to make class
-            Watch *watch = new Watch;
-            watch->act(*this);
-            delete(watch);
-        }
-        else if(action.compare("exit")==0){//need to check what to implement here.. terminate??
-            terminate=true;
-        }
+            } else if (action.compare("watchhist") == 0) {
+                PrintWatchHistory *printhistory = new PrintWatchHistory;
+                printhistory->act(*this);
 
-        else{
-            cout << "Invalid input";
+
+            } else if (action.compare("watch") == 0 & input.size() > action.size()) {
+                Watch *watch = new Watch;
+                watch->act(*this);
+
+
+            } else if (action.compare("exit") == 0) {
+                Exit *exit = new Exit;
+                exit->act(*this);
+                terminate = true;
+            } else {
+                cout << "Invalid input";
+            }
         }
     }
-}
+
 
 std::vector<Watchable*>* Session::getContent() {
     return &content;
@@ -183,10 +172,6 @@ std::vector<Watchable*>* Session::getContent() {
 
 string Session::getInput()const{
     return input;
-}
-
-string Session::setInput(string newinput){
-    input = newinput;
 }
 
 const vector<BaseAction *> &Session::getActionsLog() const {
@@ -217,7 +202,7 @@ void Session::setActiveUser(User *activeUser) {
     Session::activeUser = activeUser;
 }
 void Session::addActionLog(BaseAction *const action) {
-    actionsLog.push_back(action->clone());
+    actionsLog.push_back(action);
 }
 
 void Session::addUser(string name, string rec)  {
@@ -256,7 +241,7 @@ void Session::convertJson(){
     i >> j;
 
     //movies
-    long id=0 ;
+    long id=1 ;
     for (int i = 0; i < j["movies"].size(); i++) {
         const std::string &name = j["movies"][i]["name"];
         int length = j["movies"][i]["length"];
@@ -265,7 +250,7 @@ void Session::convertJson(){
         id++;
     }
     //tv shows
-    id=id-1;
+    id=id-2;
     for (int i = 0; i < j["tv_series"].size(); i++) {
         id++;
         const std::string &seriesName = j["tv_series"][i]["name"];
@@ -294,5 +279,4 @@ this->input=s;
 void Session::watchN(){
     Watch *watch = new Watch;
     watch->act(*this);
-    delete(watch);
 }

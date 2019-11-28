@@ -4,7 +4,8 @@
 
 
 void Exit::act(Session& sess){
-//what to implement here???
+    complete();
+    sess.addActionLog(this);
 }
 std::string Exit::toString() const{
     std::string output;
@@ -24,3 +25,5 @@ std::string Exit::toString() const{
 BaseAction* Exit::clone(){
     return (new Exit(*this));
 }
+
+Exit::~Exit() {}

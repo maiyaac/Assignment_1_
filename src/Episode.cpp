@@ -7,12 +7,11 @@
 using namespace std;
 
 
-Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags): Watchable(id,length,tags), seriesName(seriesName),season(season),episode(episode-1){
+Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags): Watchable(id,length,tags), seriesName(seriesName),season(season),episode(episode){
     nextEpisodeId = id+1;
 };
 
 Episode::~Episode(){
-    delete(this);
 }
 
 std::string Episode::toString() const{
@@ -53,8 +52,11 @@ void Episode::copy(const Episode& other){
 
 Watchable* Episode::getNextWatchable(Session& s) const{
 
+    if(nextEpisodeId == s.getContent()->size()){
+        return nullptr;
+    }
     if(s.getContent()->at((this->getID()))->getName().compare(this->getName())==0)
-        return s.getContent()->at(this->getID()+1);
+        return s.getContent()->at(nextEpisodeId);
     else return nullptr;
 }
 
