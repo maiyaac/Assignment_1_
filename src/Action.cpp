@@ -9,6 +9,8 @@ BaseAction::BaseAction() {
     ActionStatus status = PENDING;
 }
 
+BaseAction::~BaseAction(){}
+
 ActionStatus BaseAction::getStatus() const {
     return status;
 }

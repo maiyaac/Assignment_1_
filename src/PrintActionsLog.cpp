@@ -11,6 +11,8 @@ void PrintActionsLog::act(Session& sess) {
     for (int i = 0; i < actions.size() ; i++) {
         std::cout << actions.at(i)->toString() << endl;
     }
+    complete();
+    sess.addActionLog(this);
 }
 std::string PrintActionsLog::toString() const{
     std::string output;
@@ -30,3 +32,5 @@ std::string PrintActionsLog::toString() const{
 BaseAction* PrintActionsLog::clone(){
     return (new PrintActionsLog(*this));
 }
+
+PrintActionsLog::~PrintActionsLog() {}

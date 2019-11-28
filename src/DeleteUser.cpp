@@ -40,3 +40,5 @@ std::string DeleteUser::toString() const{
 BaseAction* DeleteUser::clone(){
     return (new DeleteUser(*this));
 }
+
+DeleteUser::~DeleteUser() {}

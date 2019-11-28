@@ -8,13 +8,9 @@ using namespace std;
 void CreateUser::act(Session &sess) {
     string s="";
     s=sess.getInput();
-    cout << s << endl;
     s=s.substr(11,s.size());
-    cout << s << endl;
     string name=s.substr(0,s.find(" "));//check
-    cout << name << endl;
     string recG=s.substr(s.find(" ")+1,s.size());
-    cout << recG << endl;
     if(recG.compare("len")!=0&recG.compare("rer")!=0&recG.compare("gen")!=0){
         error("No such recommendation option!");
         sess.addActionLog(this);
@@ -45,4 +41,7 @@ string CreateUser::toString() const {
 
 BaseAction* CreateUser::clone(){
     return (new CreateUser(*this));
+}
+
+CreateUser::~CreateUser() {
 }
