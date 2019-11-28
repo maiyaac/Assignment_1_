@@ -104,6 +104,7 @@ void Session::start() {
     std::cout << "SPLFlix is now on!" << endl;
     while(!terminate){
         getline(cin,input);
+
         string action;
         if(input.find(" "))
               action=input.substr(0,input.find(" "));
@@ -112,6 +113,10 @@ void Session::start() {
         }
 
         if(action.compare("createuser")==0&input.size()>action.size()){
+
+        string action=input.substr(0,input.find(" "));
+        if(action.compare("createuser")==0){
+
             cout<<"hello";
             CreateUser *newuser = new CreateUser;
             newuser->act(*this);
@@ -178,6 +183,10 @@ std::vector<Watchable*>* Session::getContent() {
 
 string Session::getInput()const{
     return input;
+}
+
+string Session::setInput(string newinput){
+    input = newinput;
 }
 
 const vector<BaseAction *> &Session::getActionsLog() const {

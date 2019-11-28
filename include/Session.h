@@ -1,3 +1,4 @@
+
 #ifndef SESSION_H_
 #define SESSION_H_
 
@@ -45,6 +46,5 @@ private:
     bool terminate;
     string input;
 };
-
 
 #endif

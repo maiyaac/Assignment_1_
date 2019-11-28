@@ -96,13 +96,55 @@
 		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/include/Watchable.h">
 			<Option target="Assignment_1_"/>
 		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/Action.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/ChangeActiveUser.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/CreateUser.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/DeleteUser.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/DuplicateUser.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
 		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/Episode.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/Exit.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/GenreRecommenderUser.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/LengthRecommenderUser.cpp">
 			<Option target="Assignment_1_"/>
 		</Unit>
 		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/Movie.cpp">
 			<Option target="Assignment_1_"/>
 		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/PrintActionsLog.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/PrintContentList.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/PrintWatchHistory.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/RerunRecommenderUser.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
 		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/Session.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/User.cpp">
+			<Option target="Assignment_1_"/>
+		</Unit>
+		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/Watch.cpp">
 			<Option target="Assignment_1_"/>
 		</Unit>
 		<Unit filename="/users/studs/bsc/2020/maiy/CLionProjects/Ass1/src/Watchable.cpp">
