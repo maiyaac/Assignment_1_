@@ -7,7 +7,7 @@ using namespace std;
 Movie::Movie(long id, const std::string& name, int length, const std::vector<std::string>& tags) : Watchable(id, length, tags), name(name){}
 
 Movie::~Movie(){
-    delete(this);
+
 }
 
 string Movie::toString() const {
@@ -16,7 +16,7 @@ string Movie::toString() const {
     for (int i=0; i<getTags().size(); i++) {
         s = s + getTags().at(i) + ", ";
     }
-    output = output + to_string(this->getID()) + ". " + name + " " + to_string(this->getLength()) + " minutes " "[" + s.substr(0,s.length()-2) + "]";
+    output = output + to_string(this->getID()+1) + ". " + name + " " + to_string(this->getLength()) + " minutes " "[" + s.substr(0,s.length()-2) + "]";
     return output;
 }
 

@@ -17,15 +17,34 @@ Session::Session(const std::string &configFilePath):content(),actionsLog (),user
     User *default1 = new LengthRecommenderUser(*s); //need to delete
     userMap.insert(make_pair("default",default1));
     setActiveUser(default1);
+    delete(s);
+
 }
 Session::Session(Session &other){
     copy(other);
 }
+Session::~Session( ) {
+    clear();
+}
 
-Session::Session(Session&& other) : content(move(other.getContent())),actionsLog(move(other.getActionsLog())),userMap(move(other.getUserMap())),
-activeUser(move(other.getActiveUser())),input(move(other.getInput())),terminate(false){}
+Session::Session(Session&& other) : content(),actionsLog (),userMap(),activeUser(),terminate(false),input(){
+    content=*(other.getContent());
+    actionsLog=other.getActionsLog();
+    userMap=other.getUserMap();
+    activeUser=other.getActiveUser();
 
-Session& Session ::operator=(const Session& other){
+    for( auto &item : other.content)
+    item= nullptr;
+    for( auto &item : other.userMap)
+        item.second= nullptr;
+    other.activeUser= nullptr;
+    for( auto &item : other.actionsLog)
+        item= nullptr;
+
+
+}
+
+Session& Session ::operator=( Session& other){
     if(&other==this)
         return *this;
     clear();
@@ -33,30 +52,34 @@ Session& Session ::operator=(const Session& other){
     return *this;
 }
 
-Session& Session ::operator=(const Session&& other) {
+Session& Session ::operator=( Session&& other) {
     if(&other==this)
         return *this;
     clear();
-    move(other.getContent());
-    move(other.getActionsLog());
-    move(other.getUserMap());
-    move(other.getActiveUser());
-    move(other.getInput());
-    terminate=false;
+    content=*(other.getContent());
+    actionsLog=other.getActionsLog();
+    userMap=other.getUserMap();
+    activeUser=other.getActiveUser();
+    terminate=other.terminate;
     return *this;
 }
 
 void Session::clear(){
-    content.clear();
-    actionsLog.clear();
-    userMap.clear();
-    activeUser = nullptr;
-    input = "";
-}
 
-void Session::copy(const Session &other){
-    for (int i=0; i<other.getContent().size()-1; i++){
-        content.push_back((other.getContent()[i]->clone()));
+    for( auto &item : content)
+        delete(item);
+    for( auto &item : userMap)
+        delete(item.second);
+    for( auto &item : actionsLog)
+        delete(item);
+    delete(activeUser);
+    input = "";
+
+
+}
+void Session::copy( Session &other){
+    for (int i=0; i<other.getContent()->size()-1; i++){
+        content.push_back((((*other.getContent())[i])->clone()));
         }
     for (int i=0; i<other.getActionsLog().size()-1; i++){
         actionsLog.push_back((other.getActionsLog()[i]->clone()));
@@ -70,7 +93,7 @@ void Session::copy(const Session &other){
 }
 
 
-Session::~Session() {}
+
 
 
 
@@ -81,52 +104,81 @@ void Session::start() {
     std::cout << "SPLFlix is now on!" << endl;
     while(!terminate){
         getline(cin,input);
+
+        string action;
+        if(input.find(" "))
+              action=input.substr(0,input.find(" "));
+        else {
+            action = input;
+        }
+
+        if(action.compare("createuser")==0&input.size()>action.size()){
+
         string action=input.substr(0,input.find(" "));
         if(action.compare("createuser")==0){
+
             cout<<"hello";
             CreateUser *newuser = new CreateUser;
             newuser->act(*this);
+            delete(newuser);
+
         }
-        else if(action.compare("changeuser")==0){
+        else if(action.compare("changeuser")==0&input.size()>action.size()){
             cout<<"hello";
             ChangeActiveUser *changeuser = new ChangeActiveUser;
             changeuser->act(*this);
+            delete(changeuser);
+
         }
-        else if(action.compare("deleteuser")==0){
+        else if(action.compare("deleteuser")==0&input.size()>action.size()){
             DeleteUser *deleteuser = new DeleteUser;
             deleteuser->act(*this);
+            delete(deleteuser);
+
+
+
         }
-        else if(action.compare("dupuser")==0){
+        else if(action.compare("dupuser")==0&input.size()>action.size()){
             DuplicateUser *dupuser = new DuplicateUser;
             dupuser->act(*this);
+            delete(dupuser);
+
         }
         else if(action.compare("log")==0){
             PrintActionsLog *actionlog = new PrintActionsLog;
             actionlog->act(*this);
+            delete(actionlog);
+
         }
         else if(action.compare("content")==0){
             PrintContentList *printcontent = new PrintContentList;
             printcontent->act(*this);
+            delete(printcontent);
+
         }
         else if(action.compare("watchhist")==0){
             PrintWatchHistory *printhistory = new PrintWatchHistory;
             printhistory->act(*this);
+            delete(printhistory);
+
         }
-        else if(action.compare("watch")==0){ //still need to make class
+        else if(action.compare("watch")==0&input.size()>action.size()){ //still need to make class
             Watch *watch = new Watch;
             watch->act(*this);
+            delete(watch);
         }
-        else if(action.compare("Exit")==0){//need to check what to implement here.. terminate??
+        else if(action.compare("exit")==0){//need to check what to implement here.. terminate??
             terminate=true;
         }
+
         else{
             cout << "Invalid input";
         }
     }
 }
 
-std::vector<Watchable*> Session::getContent() const{
-    return content;
+std::vector<Watchable*>* Session::getContent() {
+    return &content;
 }
 
 string Session::getInput()const{
@@ -206,13 +258,14 @@ void Session::convertJson(){
     //movies
     long id=0 ;
     for (int i = 0; i < j["movies"].size(); i++) {
-        id++;
         const std::string &name = j["movies"][i]["name"];
         int length = j["movies"][i]["length"];
         const std::vector<string> &tags = j["movies"][i]["tags"];
         content.push_back(new Movie(i, name, length, tags));
+        id++;
     }
     //tv shows
+    id=id-1;
     for (int i = 0; i < j["tv_series"].size(); i++) {
         id++;
         const std::string &seriesName = j["tv_series"][i]["name"];
@@ -227,7 +280,19 @@ void Session::convertJson(){
                 id++;
 
             }
+
         }
+        id=id-1;
     }
 
+}
+
+void Session::setInput(string s) {
+this->input=s;
+}
+
+void Session::watchN(){
+    Watch *watch = new Watch;
+    watch->act(*this);
+    delete(watch);
 }

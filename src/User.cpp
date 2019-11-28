@@ -13,9 +13,24 @@ User::User( string &name) : name(name) ,rec(""){}
 std::string User::getName() const{
    return name;
 }
+User::~User(){
+    for(auto &item:history)
+        item= nullptr;
+//    for (vector<Watchable*>::iterator it=history.begin(); it!=history.end(); ++it)//delete the vector
+//        (*it)= nullptr;
+    history.clear();
+    //delete(name);// necessary ?
 
-vector<Watchable*> User:: get_history() const{
-   return history;
+
+}
+User::User(User &other):name(other.name), history(),rec(other.rec){
+  for(auto &item:other.history)
+      history.push_back(item);
+
+
+}
+vector<Watchable*>* User:: get_history() {
+   return &history;
 }
 
 void User::addToHistory(Watchable* s) {

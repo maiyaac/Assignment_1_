@@ -16,6 +16,7 @@ long Watchable:: getID() const {
     return id ;
 }
 Watchable::~Watchable(){
+    tags.clear();
 }
 
 int Watchable::getLength() const{
