@@ -16,8 +16,6 @@ std::string User::getName() const{
 User::~User(){
     for(auto &item:history)
         item= nullptr;
-//    for (vector<Watchable*>::iterator it=history.begin(); it!=history.end(); ++it)//delete the vector
-//        (*it)= nullptr;
     history.clear();
     //delete(name);// necessary ?
 

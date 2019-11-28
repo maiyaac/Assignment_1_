@@ -30,3 +30,5 @@ std::string PrintContentList::toString() const{
 BaseAction* PrintContentList::clone(){
     return (new PrintContentList(*this));
 }
+
+PrintContentList::~PrintContentList() {}

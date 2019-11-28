@@ -10,8 +10,6 @@ Watchable::Watchable(long id, int length, const vector<string>& tags) : id(id),l
 
 Watchable::Watchable():id(-1),length(-1),tags(){}
 
-
-
 long Watchable:: getID() const {
     return id ;
 }
