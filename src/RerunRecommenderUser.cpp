@@ -14,6 +14,9 @@ using namespace std;
 RerunRecommenderUser::RerunRecommenderUser( string& name):User(name) ,lastId(0){
     setRec("rer");
 }
+RerunRecommenderUser::RerunRecommenderUser(RerunRecommenderUser &other):User(other){
+    setRec(other.getRec());
+}
 
 
 Watchable *RerunRecommenderUser::getRecommendation(Session &s) {

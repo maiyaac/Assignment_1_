@@ -13,11 +13,12 @@ using json = nlohmann::json;
 
 Session::Session(const std::string &configFilePath):content(),actionsLog (),userMap(),activeUser(),terminate(false),input(){
     convertJson();
-    string *s= new string ("ddefault"); //need to delete
+    string *s= new string ("default"); //need to delete
     User *default1 = new LengthRecommenderUser(*s); //need to delete
     userMap.insert(make_pair("default",default1));
     setActiveUser(default1);
     delete(s);
+
 
 }
 Session::Session(Session &other){
@@ -28,13 +29,14 @@ Session::~Session( ) {
 }
 
 Session::Session(Session&& other) : content(),actionsLog (),userMap(),activeUser(),terminate(false),input(){
+    clear();
     content=*(other.getContent());
     actionsLog=other.getActionsLog();
     userMap=other.getUserMap();
     activeUser=other.getActiveUser();
 
     for( auto &item : other.content)
-    item= nullptr;
+                item=nullptr;
     for( auto &item : other.userMap)
         item.second= nullptr;
     other.activeUser= nullptr;
@@ -52,7 +54,7 @@ Session& Session ::operator=( Session& other){
     return *this;
 }
 
-Session& Session ::operator=( Session&& other) {
+Session& Session ::operator=( Session && other) {
     if(&other==this)
         return *this;
     clear();
@@ -69,13 +71,19 @@ void Session::clear(){
 
     for( auto &item : content) {
         delete(item);
+        item= nullptr;
     }
     for( auto &item : userMap) {
         delete(item.second);
+        item.second= nullptr;
+
+
     }
 
     for( auto &item : actionsLog) {
         delete(item);
+        item= nullptr;
+
     }
     content.clear();
     userMap.clear();
@@ -85,17 +93,31 @@ void Session::clear(){
 
 
 }
-void Session::copy( Session &other){
-    for (int i=0; i<other.getContent()->size()-1; i++){
+void Session::copy( Session &other) {
+    for (int i = 0; i < other.getContent()->size(); i++) {
         content.push_back((((*other.getContent())[i])->clone()));
-        }
-    for (int i=0; i<other.getActionsLog().size()-1; i++){
-        actionsLog.push_back((other.getActionsLog()[i]->clone()));
-}
-    for (unordered_map<string,User*>::const_iterator it=other.getUserMap().begin(); it!=other.getUserMap().end(); ++it){
-           userMap.insert(make_pair(it->first,(it->second)->clone()));//clone()
     }
-    activeUser = other.getActiveUser();
+    for (int i = 0; i < other.getActionsLog().size(); i++) {
+        actionsLog.push_back((other.getActionsLog()[i]->clone()));
+    }
+    for (auto &item : other.userMap) {
+        User *newuser = item.second->clone();
+        newuser->get_history()->clear();
+        userMap.insert(make_pair(item.first, newuser));
+        for (auto &item2 : *item.second->get_history()) {
+            newuser->addToHistory(content.at(item2->getID()));
+        }
+    }
+    string temp = other.activeUser->getName();
+    activeUser = userMap[temp];
+
+//    std::string activeName = other.activeUser->getName();
+//    activeUser = (userMap.find(activeName)->second);
+//    for(auto &item:userMap) {
+//        if (item.second->getName().compare(activeName))
+//            activeUser = item.second;
+//    }
+
     terminate = false;
     input = other.getInput(); //necessary?
 }
@@ -150,7 +172,7 @@ void Session::start() {
                 printhistory->act(*this);
 
 
-            } else if (action.compare("watch") == 0 & input.size() > action.size()) {
+            } else if (action==("watch")  & input.size() > action.size()) {
                 Watch *watch = new Watch;
                 watch->act(*this);
 
@@ -236,7 +258,7 @@ void Session::deleteUserFromMap(string name){
 
 void Session::convertJson(){
 
-    std::ifstream i("../config1.json");
+    std::ifstream i("../config2.json");
     json j;
     i >> j;
 
@@ -271,6 +293,7 @@ void Session::convertJson(){
     }
 
 }
+
 
 void Session::setInput(string s) {
 this->input=s;

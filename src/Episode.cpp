@@ -11,8 +11,12 @@ Episode::Episode(long id, const std::string& seriesName,int length, int season, 
     nextEpisodeId = id+1;
 };
 
-Episode::~Episode(){
+Episode::~Episode(){}
+
+Episode::Episode(Episode &other): Watchable(other.getID(),other.getLength(),other.getTags()),seriesName(other.seriesName),season(other.getSeason()),episode(other.getEpisode()){
+
 }
+
 
 std::string Episode::toString() const{
     string output="";
@@ -55,7 +59,7 @@ Watchable* Episode::getNextWatchable(Session& s) const{
     if(nextEpisodeId == s.getContent()->size()){
         return nullptr;
     }
-    if(s.getContent()->at((this->getID()))->getName().compare(this->getName())==0)
+    if(s.getContent()->at((this->getID()))->stringClone().compare(this->getName())==0)
         return s.getContent()->at(nextEpisodeId);
     else return nullptr;
 }
