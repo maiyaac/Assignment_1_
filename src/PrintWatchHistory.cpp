@@ -11,6 +11,7 @@ void PrintWatchHistory::act (Session& sess){
     for (int i=0; i<history->size(); i++){
         string s= history->at(i)->toString();
         s=s.substr(s.find(" "),s.size());
+        s=s.substr(0,s.find("["));
         std::cout << i+1<<"."<<s<<endl;
     }
     complete();

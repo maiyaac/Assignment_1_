@@ -14,8 +14,8 @@ std::string User::getName() const{
    return name;
 }
 User::~User(){
-    for(auto &item:history)
-        item= nullptr;
+//    for(auto &item:history)
+//        item= nullptr;
     history.clear();
     //delete(name);// necessary ?
 
@@ -45,3 +45,4 @@ string User::getRec() {
 void User::setName(string s) {
     name=s;
 }
+

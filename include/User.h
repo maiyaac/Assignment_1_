@@ -24,6 +24,7 @@ public:
     void setRec(string);
     string getRec();
     void setName(string);
+
 protected:
     std::vector<Watchable*> history;
 private:
@@ -36,6 +37,7 @@ private:
 class LengthRecommenderUser : public User {
 public:
     LengthRecommenderUser(std::string &name);
+    LengthRecommenderUser(LengthRecommenderUser&);
     virtual Watchable* getRecommendation(Session& s);
     virtual User * clone() ;
     int getavgL() ;
@@ -50,7 +52,8 @@ private:
 class RerunRecommenderUser : public User {
 public:
     RerunRecommenderUser(std::string& name);
-    virtual Watchable* getRecommendation(Session& s);
+    RerunRecommenderUser(RerunRecommenderUser&);
+        virtual Watchable* getRecommendation(Session& s);
     virtual User * clone() ;
 
 private:
@@ -60,6 +63,7 @@ private:
 class GenreRecommenderUser : public User {
 public:
     GenreRecommenderUser(std::string& name);
+    GenreRecommenderUser(GenreRecommenderUser&);
     virtual Watchable* getRecommendation(Session& s);
     virtual User * clone() ;
     virtual void addToHistory(Watchable*);

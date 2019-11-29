@@ -15,18 +15,26 @@ GenreRecommenderUser::GenreRecommenderUser(std::string &name) : User(name),genre
     setRec("gen");
 
 }
-Watchable *GenreRecommenderUser::getRecommendation(Session &s) {
-    for (int i=0;i<s.getContent()->size();i++)
-    {
-        if(!findInHistory(s.getContent()->at(i)))
-            if (find((s.getContent()->at(i))->getTags().begin(), (s.getContent()->at(i))->getTags().end(), maxGenre.first) !=  (s.getContent()->at(i))->getTags().end())
-                return (s.getContent()->at(i));
-            }
+GenreRecommenderUser::GenreRecommenderUser(GenreRecommenderUser& other):User(other){
+    setRec(other.getRec());
 
-    findNextGenre();
-    return getRecommendation(s);
+}
+Watchable *GenreRecommenderUser::getRecommendation(Session &s) {
+    for (int i = 0; i < s.getContent()->size(); i++) {
+
+        if (!findInHistory(s.getContent()->at(i))) {
+            for(string item : (s.getContent()->at(i))->getTags())
+                    if(item.compare(maxGenre.first)==0)
+                        return (s.getContent()->at(i));
+
+            }
+    }
+
+        findNextGenre();
+        return getRecommendation(s);
 
     }
+
 
 
 User *GenreRecommenderUser::clone() {
@@ -41,11 +49,12 @@ void GenreRecommenderUser::findNextGenre() {
                 maxGenre.first = (*it).first;
                 maxGenre.second = (*it).second;
             }
+        }
             else if(maxGenre.second <(*it).second){
                     maxGenre.first = (*it).first;
                     maxGenre.second=(*it).second;
                 }
-        }
+
      }
     }
 
